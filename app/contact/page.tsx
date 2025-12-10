@@ -1,0 +1,120 @@
+"use client";
+
+import { BRANCHES } from "@/data/branches";
+import { useState } from "react";
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("আপনার বার্তা পাঠানো হয়েছে! আমরা শীঘ্রই আপনাকে যোগাযোগ করব।");
+  };
+
+  return (
+    <main className="px-6 md:px-16 py-20 bg-white text-[var(--text-dark)] font-[Noto_Sans_Bengali]">
+
+      {/* ------------------ PAGE HEADER ------------------ */}
+      <section className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">যোগাযোগ করুন</h1>
+        <p className="text-lg md:text-xl opacity-80">
+          আপনার যেকোনো জিজ্ঞাসা, অর্ডার বা পরামর্শের জন্য আমাদের সাথে যোগাযোগ করুন।
+        </p>
+      </section>
+
+      {/* ------------------ TWO COLUMN LAYOUT ------------------ */}
+      <section className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+
+        {/* -------- LEFT SIDE: ALL BRANCH INFO -------- */}
+        <div>
+          <h2 className="text-3xl font-bold mb-8 border-l-4 pl-4 border-[var(--primary)]">
+            আমাদের শাখাসমূহ
+          </h2>
+
+          <div className="space-y-6">
+            {BRANCHES.map((branch) => (
+              <div
+                key={branch.name}
+                className="p-6 bg-[var(--secondary)] rounded-xl shadow"
+              >
+                <h3 className="text-xl font-bold mb-2">{branch.name}</h3>
+                <p className="opacity-80 mb-1">📍 {branch.address}</p>
+                <p className="font-semibold">📞 {branch.phone}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* -------- RIGHT SIDE: CONTACT FORM -------- */}
+        <div>
+          <div className="bg-white p-10 rounded-2xl shadow">
+            <h2 className="text-3xl font-bold mb-6 border-l-4 pl-4 border-[var(--primary)]">
+              যোগাযোগ ফর্ম
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
+              <div>
+                <label className="block mb-2 font-semibold">নাম</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="আপনার নাম"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg"
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label className="block mb-2 font-semibold">মোবাইল নম্বর</label>
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="০১XXXXXXXXX"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg"
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block mb-2 font-semibold">বার্তা</label>
+                <textarea
+                  name="message"
+                  placeholder="আপনার বার্তা লিখুন"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg h-32"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-[var(--primary)] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-[#D78A69] transition w-full"
+              >
+                পাঠান
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  );
+}
