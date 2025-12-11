@@ -207,9 +207,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
+import { useCartStore } from "../../components/store/useCartStore";
 
 export default function Navbar() {
   const [open, setOpen] = useState<boolean>(false);
+  const totalItems = useCartStore(state => state.totalItems());
 
   return (
     <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
@@ -232,10 +234,26 @@ export default function Navbar() {
         {/* RIGHT SIDE (Cart + Toggle) */}
         <div className="flex items-center gap-5">
 
+          {/* cart count code  */}
+
           {/* MOBILE CART ICON */}
           <Link href="/cart" className="md:hidden">
             <ShoppingCart className="w-7 h-7 text-[var(--text-dark)]" />
+             <div className="relative md:block">
+  {/* <ShoppingCart className="w-7 h-7" /> */}
+  {totalItems > 0 && (
+    <span className="absolute -top-9  left-6 bg-[var(--primary)] text-white text-xs px-2 py-1 rounded-full">
+      {totalItems}
+    </span>
+  )}
+</div>
           </Link>
+           
+        
+
+
+          {/* cart count  */}
+
 
           {/* MOBILE MENU BUTTON */}
           <button
@@ -256,6 +274,14 @@ export default function Navbar() {
             <Link href="/cart">
               <ShoppingCart className="w-7 h-7 hover:text-[var(--primary)] transition" />
             </Link>
+            <div className="relative md:block">
+  {/* <ShoppingCart className="w-7 h-7" /> */}
+  {totalItems > 0 && (
+    <span className="absolute -top-7  -left-9 bg-[var(--primary)] text-white text-xs px-2 py-1 rounded-full">
+      {totalItems}
+    </span>
+  )}
+</div>
           </div>
 
         </div>

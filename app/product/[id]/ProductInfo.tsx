@@ -1,9 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useCartStore } from "../../components/store/useCartStore";
+
+
 
 export default function ProductInfo({ product }: any) {
   const [qty, setQty] = useState(1);
+  const addToCart = useCartStore(state => state.addToCart);
+  
 
   return (
     <div>
@@ -47,9 +52,15 @@ export default function ProductInfo({ product }: any) {
       </div>
 
       {/* Add to cart */}
-      <button className="bg-[var(--primary)] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-[#D78A69] transition w-full md:w-auto">
+      {/* <button className="bg-[var(--primary)] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-[#D78A69] transition w-full md:w-auto">
         কার্টে যোগ করুন
-      </button>
+      </button> */}
+      <button
+  onClick={() => addToCart(product.id, qty)}
+  className="bg-[var(--primary)] text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-[#D78A69] transition"
+>
+  কার্টে যোগ করুন
+</button>
     </div>
   );
 }
