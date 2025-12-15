@@ -13,7 +13,7 @@ export default function Footer() {
 
         <div>
           <h3 className="text-xl font-semibold mb-4">যোগাযোগ</h3>
-          <p className="text-sm">মোবাইল: 01XXXXXXXXX</p>
+          <p className="text-sm">মোবাইল: +8801740372692</p>
           <p className="text-sm">ঠিকানা: সিলেট, বাংলাদেশ</p>
         </div>
 

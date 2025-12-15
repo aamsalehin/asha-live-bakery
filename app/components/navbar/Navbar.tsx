@@ -267,7 +267,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8 text-[var(--text-dark)] font-[Noto_Sans_Bengali] text-lg">
             <Link href="/">হোম</Link>
             <Link href="/products">পণ্যসমূহ</Link>
-            <Link href="/about">আমাদের সম্পর্কে</Link>
+            {/* <Link href="/about">আমাদের সম্পর্কে</Link> */}
             <Link href="/contact">যোগাযোগ</Link>
 
             {/* DESKTOP CART ICON */}
