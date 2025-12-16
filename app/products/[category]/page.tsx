@@ -49,7 +49,7 @@ export default async function Page({
   }
 
   return (
-    <main className="px-6 md:px-16 py-16 bg-white text-[var(--text-dark)] font-[Noto_Sans_Bengali]">
+    <main className="px-6 md:px-16 pt-30 py-16 bg-white text-[var(--text-dark)] font-[Noto_Sans_Bengali]">
       
       {/* Header */}
       <div className="mb-10">

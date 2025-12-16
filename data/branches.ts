@@ -10,8 +10,8 @@ export const BRANCHES: BranchInfo[] = [
   {
     name: "শিবগঞ্জ শাখা",
     img: "/images/branches/shibganj.jpg",
-    address: "শিবগঞ্জ, সিলেট",
-    phone: "01700-000000",
+    address: "মসজিদ মার্কেট, শিবগঞ্জ, সিলেট",
+    phone: "+8801740372692",
 
     // ⭐ Shibganj Google Review Widget ID
     reviewWidget: "elfsight-app-3cd8590a-ea09-4d80-ac61-b31919346387",
@@ -20,8 +20,8 @@ export const BRANCHES: BranchInfo[] = [
   {
     name: "শেখঘাট শাখা",
     img: "/images/branches/sheikhghat.jpg",
-    address: "শেখঘাট, সিলেট",
-    phone: "01700-000001",
+    address: "জিতু মিয়ার পয়েন্ট, শেখঘাট, সিলেট",
+    phone: "+8801740372692",
 
     // Add your widget ID later
     reviewWidget: "",
@@ -31,16 +31,16 @@ export const BRANCHES: BranchInfo[] = [
     name: "মদিনা মার্কেট শাখা",
     img: "/images/branches/madina.jpg",
     address: "মদিনা মার্কেট, সিলেট",
-    phone: "01700-000002",
+    phone: "+8801740372692",
 
     reviewWidget: "",
   },
 
   {
-    name: "মাবেরখানা শাখা",
+    name: "আম্বরখানা শাখা",
     img: "/images/branches/maberkhana.jpg",
-    address: "মাবেরখানা, সিলেট",
-    phone: "01700-000003",
+    address: "ঘুর্নি আবাসিক এলাকার সামনে,আম্বরখানা, সিলেট",
+    phone: "+8801740372692",
 
     reviewWidget: "",
   },
@@ -48,8 +48,8 @@ export const BRANCHES: BranchInfo[] = [
   {
     name: "কুসুমবাগ শাখা",
     img: "/images/branches/kusumbag.jpg",
-    address: "কুসুমবাগ, সিলেট",
-    phone: "01700-000004",
+    address: "কুসুমবাগ পয়েন্ট, মৌলভীবাজার",
+    phone: "+8801740372692",
 
     reviewWidget: "",
   },

@@ -20,7 +20,7 @@ export default function FilterBar({ active, onFilter }: FilterBarProps) {
         <button
           key={f.key}
           onClick={() => onFilter(f.key)}
-          className={`px-5 py-2 rounded-lg font-medium transition shadow 
+          className={`px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer 
             ${
               active === f.key
                 ? "bg-[var(--primary)] text-white"
