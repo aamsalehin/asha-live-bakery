@@ -173,7 +173,7 @@ export const PRODUCTS: Product[] = [
     name: "৬ প্যাক বান",
     price: 50,
     unit: "pack",
-    img: "/images/products/6pack-bun.jpg",
+    img: "/images/products/bun-items/6-pack-bun.png",
     category: "bun",
     description: "৬টি বান সমৃদ্ধ প্যাক—দৈনন্দিন খাবারের জন্য সেরা।",
     ingredients: ["ময়দা", "ইস্ট", "চিনি"],

@@ -16,6 +16,7 @@ interface CartStore {
   removeItem: (id: number) => void;
   increaseQty: (id: number) => void;
   decreaseQty: (id: number) => void;
+  clearCart: () => void;          // ✅ ADDED
   subtotal: () => number;
   totalItems: () => number;
 }
@@ -52,25 +53,24 @@ export const useCartStore = create<CartStore>((set, get) => ({
     }
   },
 
-  removeItem: (id) => {
-    set({ cart: get().cart.filter((i) => i.id !== id) });
-  },
+  removeItem: (id) =>
+    set({ cart: get().cart.filter((i) => i.id !== id) }),
 
-  increaseQty: (id) => {
+  increaseQty: (id) =>
     set({
       cart: get().cart.map((i) =>
         i.id === id ? { ...i, qty: i.qty + 1 } : i
       ),
-    });
-  },
+    }),
 
-  decreaseQty: (id) => {
+  decreaseQty: (id) =>
     set({
       cart: get().cart.map((i) =>
         i.id === id ? { ...i, qty: Math.max(1, i.qty - 1) } : i
       ),
-    });
-  },
+    }),
+
+  clearCart: () => set({ cart: [] }), // ✅ ADDED
 
   subtotal: () =>
     get().cart.reduce((sum, item) => sum + item.price * item.qty, 0),

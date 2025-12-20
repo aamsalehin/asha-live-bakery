@@ -232,8 +232,8 @@ export default function CartPage() {
 
             <div className="space-y-3 text-lg">
               <p className="flex justify-between">
-                <span>সাবটোটাল:</span>
                 <span>{subtotal} BDT</span>
+<span>{subtotal + 50} BDT</span>
               </p>
 
               <p className="flex justify-between">

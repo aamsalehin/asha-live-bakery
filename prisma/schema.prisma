@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Order {
+  id             String      @id @default(uuid())
+  phone          String
+  name           String?
+  address        String
+  subtotal       Int
+  deliveryCharge Int
+  total          Int
+  status         String      @default("pending")
+  createdAt      DateTime    @default(now())
+
+  items          OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  orderId   String
+  productId Int
+  name      String
+  price     Int
+  qty       Int
+  unit      String
+
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
