@@ -34,18 +34,19 @@
 //     </main>
 //   );
 // }
+
 import Link from "next/link";
 
 type OrderSuccessPageProps = {
-  searchParams: {
+  searchParams: Promise<{
     orderId?: string;
-  };
+  }>;
 };
 
 export default async function OrderSuccessPage({
   searchParams,
 }: OrderSuccessPageProps) {
-  const orderId = searchParams?.orderId;
+  const { orderId } = await searchParams;
 
   return (
     <main className="py-32 text-center bg-[var(--light-bg)] font-[Noto_Sans_Bengali]">
