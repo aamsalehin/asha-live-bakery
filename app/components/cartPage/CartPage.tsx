@@ -148,6 +148,125 @@
 // }
 
 
+// "use client";
+
+// import Link from "next/link";
+// import { useCartStore } from "../../components/store/useCartStore";
+// import Image from "next/image";
+
+// export default function CartPage() {
+//   const cart = useCartStore((state) => state.cart);
+//   const increaseQty = useCartStore((state) => state.increaseQty);
+//   const decreaseQty = useCartStore((state) => state.decreaseQty);
+//   const removeItem = useCartStore((state) => state.removeItem);
+//   const subtotal = useCartStore((state) => state.subtotal());
+
+//   return (
+//     <main className="px-6 md:px-16 py-24 bg-main font-[Noto_Sans_Bengali] text-[var(--text-dark)]">
+
+//       <h1 className="text-4xl font-bold mb-10">কার্ট</h1>
+
+//       {cart.length === 0 ? (
+//         <div className="text-center py-20 text-lg">
+//           আপনার কার্ট খালি। পণ্য যোগ করুন।
+//         </div>
+//       ) : (
+//         <div className="grid lg:grid-cols-3 gap-10">
+
+//           {/* Items */}
+//           <div className="lg:col-span-2 space-y-6">
+//             {cart.map((item) => (
+//               <div
+//                 key={item.id}
+//                 className="flex gap-6 bg-white shadow-md rounded-xl p-5 items-center"
+//               >
+//                 <div className="w-28 h-24 rounded-xl overflow-hidden bg-[var(--secondary)]">
+//                   <Image
+//                     src={item.img}
+//                     alt={item.name}
+//                     width={120}
+//                     height={100}
+//                     className="object-cover w-full h-full"
+//                   />
+//                 </div>
+
+//                 <div className="flex-1">
+//                   <h3 className="text-xl font-semibold">{item.name}</h3>
+//                   <p className="text-lg font-bold text-[var(--accent)]">
+//                     {item.price} BDT / {item.unit}
+//                   </p>
+
+//                   {/* Qty */}
+//                   <div className="flex items-center gap-4 mt-4">
+//                     <button
+//                       className="w-10 h-10 bg-[var(--secondary)] rounded-lg text-2xl font-bold"
+//                       onClick={() => decreaseQty(item.id)}
+//                     >
+//                       -
+//                     </button>
+
+//                     <span className="text-xl font-semibold">{item.qty}</span>
+
+//                     <button
+//                       className="w-10 h-10 bg-[var(--secondary)] rounded-lg text-2xl font-bold"
+//                       onClick={() => increaseQty(item.id)}
+//                     >
+//                       +
+//                     </button>
+//                   </div>
+//                 </div>
+
+//                 <button
+//                   onClick={() => removeItem(item.id)}
+//                   className="text-red-500 text-2xl hover:text-red-700"
+//                 >
+//                   ✖
+//                 </button>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Summary */}
+//           <div className="bg-white shadow-lg rounded-2xl p-6 h-fit sticky top-24">
+//             <h2 className="text-2xl font-bold mb-6">অর্ডার সারাংশ</h2>
+
+//             <div className="space-y-3 text-lg">
+//               <p className="flex justify-between">
+//                 <span>{subtotal} BDT</span>
+// <span>{subtotal + 50} BDT</span>
+//               </p>
+
+//               <p className="flex justify-between">
+//                 <span>ডেলিভারি চার্জ:</span>
+//                 <span>৫০ BDT</span>
+//               </p>
+
+//               <hr className="my-4" />
+
+//               <p className="flex justify-between text-xl font-bold">
+//                 <span>মোট:</span>
+//                 <span>{subtotal + 50} BDT</span>
+//               </p>
+//             </div>
+
+//             {/* <button className="mt-6 w-full bg-[var(--primary)] text-white py-4 rounded-xl text-lg hover:bg-[#D78A69] cursor-pointer">
+//               চেকআউট করুন
+//             </button> */}
+//             <Link
+//   href="/checkout"
+//   className="mt-6 w-full block text-center bg-[var(--primary)] text-white py-4 rounded-xl text-lg font-semibold hover:bg-[#D78A69] transition cursor-pointer"
+// >
+//   চেকআউট করুন
+// </Link>
+//           </div>
+//         </div>
+//       )}
+//     </main>
+//   );
+// }
+
+
+
 "use client";
 
 import Link from "next/link";
@@ -162,24 +281,31 @@ export default function CartPage() {
   const subtotal = useCartStore((state) => state.subtotal());
 
   return (
-    <main className="px-6 md:px-16 py-24 bg-white font-[Noto_Sans_Bengali] text-[var(--text-dark)]">
-
+    <main
+      className="px-6 md:px-16 py-24 font-[Noto_Sans_Bengali]
+      landing-bg
+      text-[var(--text-primary)]"
+    >
       <h1 className="text-4xl font-bold mb-10">কার্ট</h1>
 
       {cart.length === 0 ? (
-        <div className="text-center py-20 text-lg">
+        <div className="text-center py-20 text-lg text-[var(--text-muted)]">
           আপনার কার্ট খালি। পণ্য যোগ করুন।
         </div>
       ) : (
         <div className="grid lg:grid-cols-3 gap-10">
 
-          {/* Items */}
+          {/* ITEMS */}
           <div className="lg:col-span-2 space-y-6">
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-6 bg-white shadow-md rounded-xl p-5 items-center"
+                className="flex gap-6 items-center p-5 rounded-2xl
+                bg-[var(--bg-card)]
+                border border-[var(--border-soft)]
+                shadow-[var(--shadow-soft)]"
               >
+                {/* IMAGE */}
                 <div className="w-28 h-24 rounded-xl overflow-hidden bg-[var(--secondary)]">
                   <Image
                     src={item.img}
@@ -190,25 +316,35 @@ export default function CartPage() {
                   />
                 </div>
 
+                {/* INFO */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold">{item.name}</h3>
+                  <h3 className="text-xl font-semibold">
+                    {item.name}
+                  </h3>
+
                   <p className="text-lg font-bold text-[var(--accent)]">
                     {item.price} BDT / {item.unit}
                   </p>
 
-                  {/* Qty */}
+                  {/* QTY */}
                   <div className="flex items-center gap-4 mt-4">
                     <button
-                      className="w-10 h-10 bg-[var(--secondary)] rounded-lg text-2xl font-bold"
+                      className="w-10 h-10 rounded-lg text-2xl font-bold
+                      bg-[var(--bg-soft)]
+                      hover:bg-[var(--secondary)] transition"
                       onClick={() => decreaseQty(item.id)}
                     >
-                      -
+                      −
                     </button>
 
-                    <span className="text-xl font-semibold">{item.qty}</span>
+                    <span className="text-xl font-semibold">
+                      {item.qty}
+                    </span>
 
                     <button
-                      className="w-10 h-10 bg-[var(--secondary)] rounded-lg text-2xl font-bold"
+                      className="w-10 h-10 rounded-lg text-2xl font-bold
+                      bg-[var(--bg-soft)]
+                      hover:bg-[var(--secondary)] transition"
                       onClick={() => increaseQty(item.id)}
                     >
                       +
@@ -216,9 +352,10 @@ export default function CartPage() {
                   </div>
                 </div>
 
+                {/* REMOVE */}
                 <button
                   onClick={() => removeItem(item.id)}
-                  className="text-red-500 text-2xl hover:text-red-700"
+                  className="text-2xl text-red-500 hover:text-red-600 transition"
                 >
                   ✖
                 </button>
@@ -226,38 +363,45 @@ export default function CartPage() {
             ))}
           </div>
 
-          {/* Summary */}
-          <div className="bg-white shadow-lg rounded-2xl p-6 h-fit sticky top-24">
-            <h2 className="text-2xl font-bold mb-6">অর্ডার সারাংশ</h2>
+          {/* SUMMARY */}
+          <div
+            className="rounded-3xl p-6 h-fit sticky top-24
+            bg-[var(--bg-card)]
+            border border-[var(--border-soft)]
+            shadow-[var(--shadow-soft)]"
+          >
+            <h2 className="text-2xl font-bold mb-6">
+              অর্ডার সারাংশ
+            </h2>
 
             <div className="space-y-3 text-lg">
               <p className="flex justify-between">
+                <span>সাবটোটাল</span>
                 <span>{subtotal} BDT</span>
-<span>{subtotal + 50} BDT</span>
               </p>
 
               <p className="flex justify-between">
-                <span>ডেলিভারি চার্জ:</span>
+                <span>ডেলিভারি চার্জ</span>
                 <span>৫০ BDT</span>
               </p>
 
-              <hr className="my-4" />
+              <hr className="my-4 border-[var(--border-soft)]" />
 
               <p className="flex justify-between text-xl font-bold">
-                <span>মোট:</span>
+                <span>মোট</span>
                 <span>{subtotal + 50} BDT</span>
               </p>
             </div>
 
-            {/* <button className="mt-6 w-full bg-[var(--primary)] text-white py-4 rounded-xl text-lg hover:bg-[#D78A69] cursor-pointer">
-              চেকআউট করুন
-            </button> */}
             <Link
-  href="/checkout"
-  className="mt-6 w-full block text-center bg-[var(--primary)] text-white py-4 rounded-xl text-lg font-semibold hover:bg-[#D78A69] transition cursor-pointer"
->
-  চেকআউট করুন
-</Link>
+              href="/checkout"
+              className="mt-6 block w-full text-center py-4 rounded-xl
+              text-lg font-semibold text-white
+              bg-gradient-to-r from-[var(--accent)] to-[var(--primary)]
+              hover:opacity-95 transition"
+            >
+              চেকআউট করুন
+            </Link>
           </div>
         </div>
       )}

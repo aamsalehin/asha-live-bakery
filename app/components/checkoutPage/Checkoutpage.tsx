@@ -390,6 +390,215 @@
 // dynamic version updated 
 
 
+// "use client";
+
+// import { useState } from "react";
+// import { useRouter } from "next/navigation";
+// import Link from "next/link";
+// import { useCartStore } from "../store/useCartStore";
+
+// export default function CheckoutPage() {
+//   const router = useRouter();
+
+//   // ---- Zustand ----
+//   const cart = useCartStore((state) => state.cart);
+//   const subtotal = useCartStore((state) => state.subtotal());
+//   const clearCart = useCartStore((state) => state.clearCart);
+
+//   const delivery = cart.length > 0 ? 50 : 0;
+//   const total = subtotal + delivery;
+
+//   // ---- UI State ----
+//   const [step, setStep] = useState<"guest" | "address">("guest");
+//   const [phone, setPhone] = useState("");
+//   const [name, setName] = useState("");
+//   const [address, setAddress] = useState("");
+//   const [loading, setLoading] = useState(false);
+
+//   // ---- Order Submit ----
+//   const placeOrder = async () => {
+//     if (!phone || !address) {
+//       alert("মোবাইল নম্বর ও ঠিকানা আবশ্যক");
+//       return;
+//     }
+
+//     if (cart.length === 0) {
+//       alert("আপনার কার্ট খালি");
+//       return;
+//     }
+
+//     try {
+//       setLoading(true);
+
+//       const res = await fetch("/api/order", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           phone,
+//           name,
+//           address,
+//           items: cart,
+//           subtotal,
+//           deliveryCharge: delivery,
+//           total,
+//         }),
+//       });
+
+//       const data = await res.json();
+
+//       if (!res.ok || !data.orderId) {
+//         throw new Error("Order failed");
+//       }
+
+//       clearCart();
+//       router.push(`/order-success?orderId=${data.orderId}`);
+//     } catch (err) {
+//       alert("❌ অর্ডার সম্পন্ন করা যায়নি, আবার চেষ্টা করুন");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <main className="px-6 md:px-16 py-24 bg-white font-[Noto_Sans_Bengali] text-[var(--text-dark)]">
+//       <h1 className="text-4xl font-bold mb-10">চেকআউট</h1>
+
+//       {/* EMPTY CART */}
+//       {cart.length === 0 && (
+//         <div className="text-center text-xl py-20">
+//           আপনার কার্ট খালি।
+//           <Link
+//             href="/products"
+//             className="text-[var(--primary)] underline ml-2"
+//           >
+//             পণ্যসমূহ দেখুন
+//           </Link>
+//         </div>
+//       )}
+
+//       {cart.length > 0 && (
+//         <div className="grid lg:grid-cols-3 gap-10">
+//           {/* LEFT */}
+//           <div className="lg:col-span-2 space-y-10">
+//             {/* STEP 1 */}
+//             {step === "guest" && (
+//               <div className="bg-white shadow-lg p-6 rounded-2xl">
+//                 <h2 className="text-2xl font-bold mb-4">
+//                   মোবাইল নম্বর দিন
+//                 </h2>
+
+//                 <p className="text-lg mb-6 opacity-80">
+//                   OTP ছাড়া শুধু নম্বর দিয়েই অর্ডার করতে পারবেন।
+//                 </p>
+
+//                 <input
+//                   type="text"
+//                   placeholder="০১XXXXXXXXX"
+//                   value={phone}
+//                   onChange={(e) => setPhone(e.target.value)}
+//                   className="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4"
+//                 />
+
+//                 <button
+//                   onClick={() => setStep("address")}
+//                   className="bg-[var(--primary)] text-white px-6 py-3 rounded-lg w-full text-lg font-semibold hover:bg-[#D78A69] transition"
+//                 >
+//                   পরবর্তী ধাপ
+//                 </button>
+//               </div>
+//             )}
+
+//             {/* STEP 2 */}
+//             {step === "address" && (
+//               <div className="bg-white shadow-lg p-6 rounded-2xl space-y-6">
+//                 <h2 className="text-2xl font-bold mb-4">
+//                   ডেলিভারি তথ্য
+//                 </h2>
+
+//                 {/* Name */}
+//                 <div>
+//                   <label className="block mb-2 font-semibold">
+//                     নাম
+//                   </label>
+//                   <input
+//                     type="text"
+//                     placeholder="আপনার নাম"
+//                     value={name}
+//                     onChange={(e) => setName(e.target.value)}
+//                     className="w-full border border-gray-300 rounded-lg px-4 py-3"
+//                   />
+//                 </div>
+
+//                 {/* Address */}
+//                 <div>
+//                   <label className="block mb-2 font-semibold">
+//                     ঠিকানা
+//                   </label>
+//                   <textarea
+//                     placeholder="সম্পূর্ণ ঠিকানা লিখুন"
+//                     value={address}
+//                     onChange={(e) => setAddress(e.target.value)}
+//                     className="w-full border border-gray-300 rounded-lg px-4 py-3 h-28"
+//                   />
+//                 </div>
+
+//                 {/* Payment */}
+//                 <div>
+//                   <h3 className="text-xl font-bold mb-2">
+//                     পেমেন্ট মেথড
+//                   </h3>
+//                   <div className="p-4 border rounded-lg flex items-center gap-4 bg-[var(--secondary)]">
+//                     <input type="radio" checked readOnly />
+//                     <span className="text-lg">
+//                       ক্যাশ অন ডেলিভারি (COD)
+//                     </span>
+//                   </div>
+//                 </div>
+
+//                 <button
+//                   onClick={placeOrder}
+//                   disabled={loading}
+//                   className="bg-[var(--primary)] text-white px-6 py-3 rounded-lg w-full text-lg font-semibold hover:bg-[#D78A69] transition disabled:opacity-60"
+//                 >
+//                   {loading ? "অর্ডার হচ্ছে..." : "অর্ডার নিশ্চিত করুন"}
+//                 </button>
+//               </div>
+//             )}
+//           </div>
+
+//           {/* RIGHT — SUMMARY */}
+//           <div className="bg-white shadow-lg rounded-2xl p-6 h-fit sticky top-24">
+//             <h2 className="text-2xl font-bold mb-6">
+//               অর্ডার সারাংশ
+//             </h2>
+
+//             <div className="text-lg space-y-3">
+//               <div className="flex justify-between">
+//                 <span>সাবটোটাল:</span>
+//                 <span>{subtotal} টাকা</span>
+//               </div>
+
+//               <div className="flex justify-between">
+//                 <span>ডেলিভারি চার্জ:</span>
+//                 <span>{delivery} টাকা</span>
+//               </div>
+
+//               <hr className="my-4" />
+
+//               <div className="flex justify-between text-xl font-bold">
+//                 <span>মোট:</span>
+//                 <span>{total} টাকা</span>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </main>
+//   );
+// }
+
+
+
 "use client";
 
 import { useState } from "react";
@@ -452,7 +661,7 @@ export default function CheckoutPage() {
 
       clearCart();
       router.push(`/order-success?orderId=${data.orderId}`);
-    } catch (err) {
+    } catch {
       alert("❌ অর্ডার সম্পন্ন করা যায়নি, আবার চেষ্টা করুন");
     } finally {
       setLoading(false);
@@ -460,12 +669,17 @@ export default function CheckoutPage() {
   };
 
   return (
-    <main className="px-6 md:px-16 py-24 bg-white font-[Noto_Sans_Bengali] text-[var(--text-dark)]">
+    <main
+      className="px-6 md:px-16 py-24
+      landing-bg
+      text-[var(--text-primary)]
+      font-[Noto_Sans_Bengali]"
+    >
       <h1 className="text-4xl font-bold mb-10">চেকআউট</h1>
 
       {/* EMPTY CART */}
       {cart.length === 0 && (
-        <div className="text-center text-xl py-20">
+        <div className="text-center text-xl py-20 text-[var(--text-muted)]">
           আপনার কার্ট খালি।
           <Link
             href="/products"
@@ -478,16 +692,23 @@ export default function CheckoutPage() {
 
       {cart.length > 0 && (
         <div className="grid lg:grid-cols-3 gap-10">
+
           {/* LEFT */}
           <div className="lg:col-span-2 space-y-10">
+
             {/* STEP 1 */}
             {step === "guest" && (
-              <div className="bg-white shadow-lg p-6 rounded-2xl">
+              <div
+                className="p-6 rounded-2xl
+                bg-[var(--bg-card)]
+                border border-[var(--border-soft)]
+                shadow-[var(--shadow-soft)]"
+              >
                 <h2 className="text-2xl font-bold mb-4">
                   মোবাইল নম্বর দিন
                 </h2>
 
-                <p className="text-lg mb-6 opacity-80">
+                <p className="text-lg mb-6 text-[var(--text-secondary)]">
                   OTP ছাড়া শুধু নম্বর দিয়েই অর্ডার করতে পারবেন।
                 </p>
 
@@ -496,12 +717,17 @@ export default function CheckoutPage() {
                   placeholder="০১XXXXXXXXX"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 mb-4"
+                  className="w-full rounded-lg px-4 py-3 mb-4
+                  bg-[var(--bg-main)]
+                  border border-[var(--border-soft)]
+                  focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                 />
 
                 <button
                   onClick={() => setStep("address")}
-                  className="bg-[var(--primary)] text-white px-6 py-3 rounded-lg w-full text-lg font-semibold hover:bg-[#D78A69] transition"
+                  className="w-full px-6 py-3 rounded-lg text-lg font-semibold text-white
+                  bg-gradient-to-r from-[var(--accent)] to-[var(--primary)]
+                  hover:opacity-95 transition"
                 >
                   পরবর্তী ধাপ
                 </button>
@@ -510,8 +736,13 @@ export default function CheckoutPage() {
 
             {/* STEP 2 */}
             {step === "address" && (
-              <div className="bg-white shadow-lg p-6 rounded-2xl space-y-6">
-                <h2 className="text-2xl font-bold mb-4">
+              <div
+                className="p-6 rounded-2xl space-y-6
+                bg-[var(--bg-card)]
+                border border-[var(--border-soft)]
+                shadow-[var(--shadow-soft)]"
+              >
+                <h2 className="text-2xl font-bold">
                   ডেলিভারি তথ্য
                 </h2>
 
@@ -525,7 +756,9 @@ export default function CheckoutPage() {
                     placeholder="আপনার নাম"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3"
+                    className="w-full rounded-lg px-4 py-3
+                    bg-[var(--bg-main)]
+                    border border-[var(--border-soft)]"
                   />
                 </div>
 
@@ -538,7 +771,9 @@ export default function CheckoutPage() {
                     placeholder="সম্পূর্ণ ঠিকানা লিখুন"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 h-28"
+                    className="w-full rounded-lg px-4 py-3 h-28
+                    bg-[var(--bg-main)]
+                    border border-[var(--border-soft)]"
                   />
                 </div>
 
@@ -547,7 +782,11 @@ export default function CheckoutPage() {
                   <h3 className="text-xl font-bold mb-2">
                     পেমেন্ট মেথড
                   </h3>
-                  <div className="p-4 border rounded-lg flex items-center gap-4 bg-[var(--secondary)]">
+                  <div
+                    className="p-4 rounded-lg flex items-center gap-4
+                    bg-[var(--bg-soft)]
+                    border border-[var(--border-soft)]"
+                  >
                     <input type="radio" checked readOnly />
                     <span className="text-lg">
                       ক্যাশ অন ডেলিভারি (COD)
@@ -558,7 +797,9 @@ export default function CheckoutPage() {
                 <button
                   onClick={placeOrder}
                   disabled={loading}
-                  className="bg-[var(--primary)] text-white px-6 py-3 rounded-lg w-full text-lg font-semibold hover:bg-[#D78A69] transition disabled:opacity-60"
+                  className="w-full px-6 py-3 rounded-lg text-lg font-semibold text-white
+                  bg-gradient-to-r from-[var(--accent)] to-[var(--primary)]
+                  hover:opacity-95 transition disabled:opacity-60"
                 >
                   {loading ? "অর্ডার হচ্ছে..." : "অর্ডার নিশ্চিত করুন"}
                 </button>
@@ -567,26 +808,31 @@ export default function CheckoutPage() {
           </div>
 
           {/* RIGHT — SUMMARY */}
-          <div className="bg-white shadow-lg rounded-2xl p-6 h-fit sticky top-24">
+          <div
+            className="p-6 rounded-2xl h-fit sticky top-24
+            bg-[var(--bg-card)]
+            border border-[var(--border-soft)]
+            shadow-[var(--shadow-soft)]"
+          >
             <h2 className="text-2xl font-bold mb-6">
               অর্ডার সারাংশ
             </h2>
 
             <div className="text-lg space-y-3">
               <div className="flex justify-between">
-                <span>সাবটোটাল:</span>
+                <span>সাবটোটাল</span>
                 <span>{subtotal} টাকা</span>
               </div>
 
               <div className="flex justify-between">
-                <span>ডেলিভারি চার্জ:</span>
+                <span>ডেলিভারি চার্জ</span>
                 <span>{delivery} টাকা</span>
               </div>
 
-              <hr className="my-4" />
+              <hr className="my-4 border-[var(--border-soft)]" />
 
               <div className="flex justify-between text-xl font-bold">
-                <span>মোট:</span>
+                <span>মোট</span>
                 <span>{total} টাকা</span>
               </div>
             </div>

@@ -28,21 +28,16 @@ import BranchReviewsV2 from "../../components/about/BranchReviewsV2";
 import AboutClosingV2 from "../../components/about/AboutClosingV2";
 import GallerySliderV2 from "@/app/components/about/GallerysliderV2";
 import BranchReviewsV3 from "@/app/components/about/BranchReviewsV3";
+import PageHero from "@/app/components/pageHero/PageHero";
 
 export default function AboutPage() {
   return (
-    <main className="font-[Noto_Sans_Bengali] text-[var(--text-primary)] bg-[var(--light-bg)] dark:bg-[var(--dark-bg)"  style={{
-        background: `
-          radial-gradient(circle at top left, var(--hero-glow-primary), transparent 55%),
-          linear-gradient(
-            to bottom right,
-            var(--hero-bg-from),
-            var(--hero-bg-via),
-            var(--hero-bg-to)
-          )
-        `,
-      }}>
-      <AboutHeroV2 />
+    <main className="font-[Noto_Sans_Bengali] text-[var(--text-primary)] landing-bg"
+        >
+      <PageHero  badge="আমাদের গল্প"
+  title="আশা লাইভ বেকারি"
+  subtitle="তাজা, মানসম্মত ও লাইভ বেকিং অভিজ্ঞতা — সিলেটের মানুষের ভালোবাসায় গড়া।"
+  icons={["🍞", "🥐", "🎂"]}/>
       <AboutTimelineV2 />
       <BranchReviewsV3 />
       <GallerySliderV2 />

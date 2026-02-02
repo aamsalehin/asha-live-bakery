@@ -124,6 +124,7 @@
 import { BRANCHES } from "@/data/branches";
 import { useState } from "react";
 import { MapPin, Phone, Send } from "lucide-react";
+import PageHero from "@/app/components/pageHero/PageHero";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -160,25 +161,16 @@ export default function ContactPage() {
       }}
     >
       {/* CONTENT */}
-      <section className="px-6 md:px-16 py-32">
+      <PageHero
+  badge="যোগাযোগ"
+  title="আমাদের সাথে যোগাযোগ করুন"
+  subtitle="অর্ডার, প্রশ্ন বা পরামর্শের জন্য আমরা সবসময় প্রস্তুত।"
+  icons={["📞", "📍", "💬"]}
+/>
+      <section className="py-24 ">
 
         {/* HEADER */}
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <h1
-            className="text-4xl md:text-5xl font-extrabold mb-4"
-            style={{
-              background: "var(--gradient-primary)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            যোগাযোগ করুন
-          </h1>
-
-          <p className="text-lg text-[var(--text-secondary)]">
-            যেকোনো প্রশ্ন বা অর্ডারের জন্য আমাদের সাথে যোগাযোগ করুন
-          </p>
-        </div>
+       
 
         {/* GRID */}
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14">
@@ -231,7 +223,7 @@ export default function ContactPage() {
                   placeholder="আপনার নাম"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-5 py-3 rounded-xl bg-[var(--bg-main)] border border-[var(--border-soft)]"
+                  className="w-full px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)]"
                   required
                 />
 
@@ -240,7 +232,7 @@ export default function ContactPage() {
                   placeholder="০১XXXXXXXXX"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-5 py-3 rounded-xl bg-[var(--bg-main)] border border-[var(--border-soft)]"
+                  className="w-full px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)]"
                   required
                 />
 
@@ -249,7 +241,7 @@ export default function ContactPage() {
                   placeholder="আপনার বার্তা লিখুন"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full h-32 px-5 py-3 rounded-xl bg-[var(--bg-main)] border border-[var(--border-soft)] resize-none"
+                  className="w-full h-32 px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)] resize-none"
                   required
                 />
 

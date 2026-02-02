@@ -5,8 +5,6 @@ import { useCartStore } from "../store/useCartStore";
 
 export default function SpecialsV2() {
   const addToCart = useCartStore((state) => state.addToCart);
-
-  // ⭐ Product of the Day
   const product = PRODUCTS.find((p) => p.productOfTheDay);
 
   if (!product) return null;
@@ -18,36 +16,28 @@ export default function SpecialsV2() {
   };
 
   return (
-    <section className="relative py-24 px-6 md:px-16 overflow-hidden">
+    <section className="relative landing-section overflow-hidden bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]">
 
-      {/* BACKGROUND GRADIENT */}
-      <div className="absolute inset-0 bg-gradient-to-br 
-        from-[var(--secondary)] 
-        via-[var(--light-bg)] 
-        to-[var(--card-bg)] 
-        dark:from-[#1a1410] dark:via-[#120e0c] dark:to-[#1f1814]" 
-      />
+      {/* 🌈 BACKGROUND — SAME FLOW AS HERO */}
+      <div className="absolute inset-0 opacity-80" />
 
-      {/* GLOW BLOBS */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[var(--primary)]/20 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent)]/20 blur-3xl rounded-full" />
+      {/* SOFT GLOWS */}
+      {/* <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-[var(--primary)]/20 blur-3xl rounded-full" /> */}
+      {/* <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-[var(--accent)]/20 blur-3xl rounded-full" /> */}
 
-      <div className="relative max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-14 items-center 
-          rounded-3xl p-10 md:p-14
-          bg-white/60 dark:bg-white/5
-          backdrop-blur-xl
-          border border-white/40 dark:border-white/10
-          shadow-2xl">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-16">
+
+        {/* GLASS CONTAINER */}
+        <div className="grid md:grid-cols-2 gap-14 items-center
+          glass-surface-strong rounded-3xl p-10 md:p-14">
 
           {/* IMAGE */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-tr 
-              from-[var(--primary)]/20 
-              to-[var(--accent)]/20 
+              from-[var(--primary)]/20 to-[var(--accent)]/20
               blur-2xl rounded-3xl" />
 
-            <div className="relative w-full h-80 rounded-3xl overflow-hidden bg-white shadow-xl">
+            <div className="relative w-full h-80 rounded-3xl overflow-hidden bg-[var(--bg-main)] shadow-xl">
               <img
                 src={product.img}
                 alt={product.name}
@@ -58,15 +48,13 @@ export default function SpecialsV2() {
 
           {/* CONTENT */}
           <div>
-            {/* BADGE */}
-            <span className="inline-block mb-4 px-4 py-1 rounded-full
-              bg-[var(--accent)]/10 text-[var(--accent)]
+            <span className="inline-flex items-center gap-2 mb-4 px-4 py-1 rounded-full
+              bg-[var(--hero-badge-bg)] text-[var(--hero-badge-text)]
               font-semibold text-sm">
               ⭐ আজকের স্পেশাল
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 
-              text-[var(--text-dark)] dark:text-[var(--text-light)]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               বিশেষ অফার – আজকের জন্য
             </h2>
 
@@ -74,29 +62,24 @@ export default function SpecialsV2() {
               {product.name} — {product.price} টাকা / {product.unit}
             </p>
 
-            <p className="text-lg leading-relaxed mb-8 
-              text-[var(--text-dark)] dark:text-[var(--text-light)] opacity-90">
+            <p className="text-lg leading-relaxed mb-8 text-[var(--text-secondary)]">
               {product.description}
             </p>
 
-            {/* ACTIONS */}
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={handleAddToCart}
                 className="px-8 py-4 rounded-xl font-semibold text-white
-                  bg-gradient-to-r from-[var(--accent)] to-[var(--primary)]
-                  shadow-lg hover:shadow-xl hover:scale-[1.02] transition"
-              >
+                bg-gradient-to-r from-[var(--accent)] to-[var(--primary)]
+                shadow-lg hover:shadow-xl hover:scale-[1.03] transition">
                 এখনই অর্ডার করুন
               </button>
 
               <button
                 className="px-8 py-4 rounded-xl font-semibold
-                  border-2 border-[var(--primary)]
-                  text-[var(--text-dark)] dark:text-[var(--text-light)]
-                  hover:bg-[var(--secondary)] dark:hover:bg-white/10
-                  transition"
-              >
+                border-2 border-[var(--primary)]
+                text-[var(--text-primary)]
+                hover:bg-[var(--bg-soft)] transition">
                 আরও দেখুন
               </button>
             </div>

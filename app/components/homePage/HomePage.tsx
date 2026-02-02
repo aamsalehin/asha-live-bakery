@@ -18,7 +18,7 @@ import SpecialsV2 from "../specials/SpecialsV2";
 
 export default function HomePage() {
   return (
-    <div className="pt-19">
+    <main className="">
    <HeroSectionV3/>
    <CategoryGridV3/>
    <FeaturedProducts/>
@@ -26,7 +26,7 @@ export default function HomePage() {
    <HotItemsV2/>
    <AboutSectionV2/>
     
-    </div>
+    </main>
     
   );
 }
