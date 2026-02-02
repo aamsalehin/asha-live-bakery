@@ -120,17 +120,17 @@ import { Store, MapPin, Cpu, Calendar } from "lucide-react";
 
 const timeline = [
   {
-    year: "২০১৫",
+    year: "নভেম্বর, ২০২৩",
     text: "শিবগঞ্জ থেকে আশা লাইভ বেকারির যাত্রা শুরু",
     icon: Store,
   },
   {
-    year: "২০১৮",
+    year: "ফেব্রুয়ারি,২০২৪",
     text: "মানুষের ভালোবাসায় নতুন দুইটি শাখা উদ্বোধন",
     icon: MapPin,
   },
   {
-    year: "২০২২",
+    year: "মার্চ, ২০২৪",
     text: "আধুনিক প্রযুক্তি সংযোজন ও উৎপাদন উন্নয়ন",
     icon: Cpu,
   },

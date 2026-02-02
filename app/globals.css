@@ -5,44 +5,155 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap');
 
 /* -------------------------------------------------- */
-/* TailwindCSS v4 — NEW SYNTAX */
+/* TailwindCSS v4 */
 /* -------------------------------------------------- */
 @import "tailwindcss";
 
-/* -------------------------------------------------- */
-/* Global Styles for Asha Live Bakery */
-/* -------------------------------------------------- */
-/* :root {
-  --primary: #E19B79;
-  --secondary: #F5E6D3;
-  --accent: #D9534F;
-  --text-dark: #3B3B3B;
-  --light-bg: #FFF8F4;
-} */
- :root {
-  /* Primary brand colors from logo */
-  --primary: #E47A3A;      /* Warm sunset orange (arch) */
-  --secondary: #F3D7B9;    /* Soft beige/cream (banner background) */
-  
-  /* Accent colors */
-  --accent: #C32524;       /* Deep red (bold text) */
-  --accent-light: #F06854; /* Light warm red/orange highlight */
+/* ================================================== */
+/* 🌞 LIGHT THEME (DEFAULT) */
+/* ================================================== */
+:root {
+  /* Brand */
+  --primary: #E47A3A;
+  --primary-hover: #D86B2C;
+  --secondary: #F3D7B9;
 
-  /* Neutral text colors */
-  --text-dark: #2E2A27;    /* Dark brown/charcoal outlines */
-  --text-light: #FFF8F0;   /* Light cream */
+  --accent: #C32524;
+  --accent-light: #F06854;
+
+  /* Text */
+  --text-primary: #2E2A27;
+  --text-secondary: #5A554F;
+  --text-muted: #8A857F;
+  --text-inverse: #FFF8F0;
+
+  /* Backward compatibility (important) */
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
 
   /* Backgrounds */
-  --light-bg: #FDF3E7;     /* Very light bakery-cream tone */
-  --card-bg: #FFE8D6;      /* Soft peach background */
+  --bg-main: #ffffff;
+  --bg-section: #FDF3E7;
+  --bg-card: #FFE8D6;
+  --bg-soft: rgba(0, 0, 0, 0.03);
+
+  /* Alias used by older components */
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #E47A3A, #C32524);
+  --gradient-soft: linear-gradient(135deg, #FDF3E7, #FFE8D6);
+
+  /* ================================================== */
+  /* HERO VARIABLES (🔥 THIS FIXES YOUR HERO) */
+  /* ================================================== */
+  --hero-bg-from: #F3D7B9;
+  --hero-bg-via: #FFE8D6;
+  --hero-bg-to: #FDF3E7;
+
+  --hero-glow-primary: rgba(228, 122, 58, 0.28);
+  --hero-glow-accent: rgba(195, 37, 36, 0.18);
+
+  --hero-badge-bg: rgba(195, 37, 36, 0.12);
+  --hero-badge-text: var(--accent);
+
+  --hero-btn-gradient-from: var(--accent);
+  --hero-btn-gradient-to: var(--primary);
+
+  --hero-outline: var(--accent);
+
+  /* ================================================== */
+  /* FOOTER (ALWAYS DARK) */
+  /* ================================================== */
+  --footer-bg: linear-gradient(135deg, #2a1f1a, #1f1a17, #2d1b16);
+  --footer-text: #ffffff;
+  --footer-muted: #e7dcd5;
+  --footer-border: rgba(255, 255, 255, 0.12);
 }
 
+/* ================================================== */
+/* 🌙 DARK THEME */
+/* ================================================== */
+.dark,
+[data-theme="dark"] {
+  --primary: #F08C4A;
+  --primary-hover: #E47A3A;
+  --secondary: #2A1F17;
+
+  --accent: #FF6B5A;
+  --accent-light: #F89A8B;
+
+  --text-primary: #F5EFE9;
+  --text-secondary: #CFC7BE;
+  --text-muted: #9C948A;
+  --text-inverse: #1C1815;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  --bg-main: #1C1815;
+  --bg-section: #241F1A;
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --bg-soft: rgba(255, 255, 255, 0.05);
+
+  --light-bg: var(--bg-section);
+
+  --border-soft: rgba(255, 255, 255, 0.12);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  --gradient-primary: linear-gradient(135deg, #F08C4A, #FF6B5A);
+  --gradient-soft: linear-gradient(135deg, #241F1A, #1C1815);
+
+  /* HERO (dark tuned) */
+  --hero-bg-from: #1A1411;
+  --hero-bg-via: #241A15;
+  --hero-bg-to: #120D0A;
+
+  --hero-glow-primary: rgba(240, 140, 74, 0.35);
+  --hero-glow-accent: rgba(240, 104, 84, 0.25);
+
+  --hero-badge-bg: rgba(240, 104, 84, 0.15);
+  --hero-badge-text: #FAD6C3;
+
+  --hero-btn-gradient-from: #F06854;
+  --hero-btn-gradient-to: #E47A3A;
+
+  --hero-outline: #F06854;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #0f0c0a, #15110e, #1a120f);
+  --footer-text: #ffffff;
+  --footer-muted: #cfc3bb;
+  --footer-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ================================================== */
+/* BASE */
+/* ================================================== */
 body {
   font-family: 'Noto Sans Bengali', sans-serif;
-  color: var(--text-dark);
-  background-color: #ffffff;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: 'Noto Serif Bengali', serif;
+  color: var(--text-primary);
+}
+
+/* ================================================== */
+/* OPTIONAL UTILITIES (SAFE) */
+/* ================================================== */
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border-soft);
 }
