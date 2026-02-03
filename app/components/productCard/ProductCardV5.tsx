@@ -37,7 +37,7 @@ export default function ProductCardV5({ product }: { product: Product }) {
         className="
           relative overflow-hidden rounded-3xl p-4
           backdrop-blur-xl
-          bg-[var(--bg-card)]
+          bg-[var(--bg-main)]
           border border-[var(--border-soft)]
           shadow-[var(--shadow-soft)]
           transition-all duration-300
@@ -67,7 +67,7 @@ export default function ProductCardV5({ product }: { product: Product }) {
         {/* IMAGE */}
         <div
           className="
-            relative w-full h-48 rounded-2xl overflow-hidden
+            relative w-full h-48 rounded-2xl overflow-hidden flex items-center justify-center
             bg-gradient-to-br from-[var(--secondary)] to-[var(--bg-section)]
           "
         >
@@ -75,7 +75,7 @@ export default function ProductCardV5({ product }: { product: Product }) {
             src={product.img}
             alt={product.name}
             className="
-              w-full h-full object-cover
+              w-50 h-50 object-contain
               transition-transform duration-500
               group-hover:scale-110
             "
@@ -113,7 +113,7 @@ export default function ProductCardV5({ product }: { product: Product }) {
         </div>
 
         {/* CONTENT */}
-        <div className="pt-4 space-y-1">
+        <div className="pt-4 space-y-1 text-center">
           <h3 className="text-lg font-semibold text-[var(--text-primary)] line-clamp-1">
             {product.name}
           </h3>

@@ -71,6 +71,7 @@
 import { PRODUCTS } from "@/data/Products";
 import ProductInfo from "./ProductInfo";
 import ProductCardV5 from "@/app/components/productCard/ProductCardV5";
+import ProductCardV7 from "@/app/components/productCard/ProductCardV7";
 
 
 interface PageProps {
@@ -135,7 +136,7 @@ export default async function ProductDetailsPage({ params }: PageProps) {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {relatedProducts.map((item) => (
-              <ProductCardV5 key={item.id} product={item} />
+              <ProductCardV7 key={item.id} product={item} />
             ))}
           </div>
         </section>

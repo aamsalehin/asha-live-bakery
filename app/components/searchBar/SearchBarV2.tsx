@@ -13,7 +13,7 @@ export default function SearchBarV2({ value, onChange }: SearchBarProps) {
       <div
         className="flex items-center gap-3 px-5 py-3 rounded-2xl
         border backdrop-blur-md shadow-sm transition
-        bg-[var(--bg-card)]
+        bg-[var(--bg-main)]
         border-[var(--border-soft)]
         focus-within:ring-2 focus-within:ring-[var(--primary)]"
       >

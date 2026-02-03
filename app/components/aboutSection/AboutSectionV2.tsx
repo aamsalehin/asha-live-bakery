@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AboutSectionV2() {
   return (
-    <section className="py-24 px-6 md:px-16 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]">
+    <section className="py-24 px-6 md:px-16 bg-[var(--bg-main)] dark:bg-[var(--dark-bg)]">
       
       
       <div className="relative max-w-7xl mx-auto px-6 md:px-16 grid md:grid-cols-2 gap-14 items-center">

@@ -72,6 +72,7 @@
 import Link from "next/link";
 import ProductCardV5 from "@/app/components/productCard/ProductCardV5";
 import { PRODUCTS } from "@/data/Products";
+import ProductCardV7 from "@/app/components/productCard/ProductCardV7";
 
 /* Plural → Singular Mapping */
 const CATEGORY_ALIAS: Record<string, string> = {
@@ -167,7 +168,7 @@ export default async function Page({
       {/* PRODUCTS GRID */}
       <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((item) => (
-          <ProductCardV5 key={item.id} product={item} />
+          <ProductCardV7 key={item.id} product={item} />
         ))}
       </div>
     </main>

@@ -54,7 +54,7 @@ export default function FooterV2() {
             </li>
             <li className="flex items-center gap-3">
               <Clock className="w-4 h-4 text-orange-400" />
-              প্রতিদিন সকাল ৭টা – রাত ১০টা
+              প্রতিদিন সকাল ৭টা – রাত ১২টা
             </li>
           </ul>
         </div>

@@ -84,7 +84,17 @@ export default function FAQSection() {
 
       <div className="relative max-w-5xl mx-auto">
 
-        {/* HEADER */}
+         {/* Heading */}
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 border-l-4 pl-4 border-[var(--primary)]">
+            প্রায়শই জিজ্ঞাসিত প্রশ্ন
+          </h2>
+          <p className="text-[var(--text-secondary)] text-lg">
+           আশা লাইভ বেকারি সম্পর্কে আপনার সাধারণ প্রশ্নের উত্তর
+          </p>
+        </div>
+
+        {/* HEADER
         <div className="mb-14">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--text-primary)]">
             প্রায়শই জিজ্ঞাসিত প্রশ্ন
@@ -92,7 +102,7 @@ export default function FAQSection() {
           <p className="text-lg text-[var(--text-secondary)]">
             আশা লাইভ বেকারি সম্পর্কে আপনার সাধারণ প্রশ্নের উত্তর
           </p>
-        </div>
+        </div> */}
 
         {/* FAQ LIST */}
         <div className="space-y-5">

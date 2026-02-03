@@ -131,6 +131,252 @@
   --footer-border: rgba(255, 255, 255, 0.08);
 }
 
+
+
+
+
+
+/* 2nds set  */
+
+
+
+
+:root {
+  /* Brand */
+  --primary: #D8A77C;
+  --primary-hover: #C9966C;
+  --secondary: #F4EEE8;
+
+  --accent: #B56A6A;
+  --accent-light: #D9A3A3;
+
+  /* Text */
+  --text-primary: #2F2C2A;
+  --text-secondary: #5F5A56;
+  --text-muted: #8F8A85;
+  --text-inverse: #FFFFFF;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #FFFFFF;
+  --bg-section: #FAF7F4;
+  --bg-card: #F6EFE8;
+  --bg-soft: rgba(0, 0, 0, 0.025);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.06);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #D8A77C, #B56A6A);
+  --gradient-soft: linear-gradient(135deg, #FAF7F4, #F6EFE8);
+
+  /* HERO */
+  --hero-bg-from: #FAF7F4;
+  --hero-bg-via: #F4EEE8;
+  --hero-bg-to: #EFE6DE;
+
+  --hero-glow-primary: rgba(216, 167, 124, 0.22);
+  --hero-glow-accent: rgba(181, 106, 106, 0.16);
+
+  --hero-badge-bg: rgba(181, 106, 106, 0.1);
+  --hero-badge-text: var(--accent);
+
+  --hero-btn-gradient-from: var(--accent);
+  --hero-btn-gradient-to: var(--primary);
+
+  --hero-outline: var(--accent);
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #2C2623, #1F1A17);
+  --footer-text: #FFFFFF;
+  --footer-muted: #D6CCC4;
+  --footer-border: rgba(255, 255, 255, 0.1);
+}
+  .dark,
+[data-theme="dark"] {
+  --primary: #E0B08A;
+  --primary-hover: #D19B70;
+  --secondary: #2A2420;
+
+  --accent: #D38A8A;
+  --accent-light: #E7B7B7;
+
+  /* Text */
+  --text-primary: #F3EEE9;
+  --text-secondary: #CBC4BD;
+  --text-muted: #A59E96;
+  --text-inverse: #1A1715;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #1A1715;
+  --bg-section: #221E1B;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-soft: rgba(255, 255, 255, 0.04);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.55);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #E0B08A, #D38A8A);
+  --gradient-soft: linear-gradient(135deg, #221E1B, #1A1715);
+
+  /* HERO */
+  --hero-bg-from: #1F1B18;
+  --hero-bg-via: #241F1C;
+  --hero-bg-to: #171412;
+
+  --hero-glow-primary: rgba(224, 176, 138, 0.28);
+  --hero-glow-accent: rgba(211, 138, 138, 0.22);
+
+  --hero-badge-bg: rgba(211, 138, 138, 0.14);
+  --hero-badge-text: #F0CFCF;
+
+  --hero-btn-gradient-from: #D38A8A;
+  --hero-btn-gradient-to: #E0B08A;
+
+  --hero-outline: #D38A8A;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #0F0D0B, #151210);
+  --footer-text: #FFFFFF;
+  --footer-muted: #C8BEB6;
+  --footer-border: rgba(255, 255, 255, 0.08);
+}
+
+
+
+
+/* color palate  */
+
+
+
+:root {
+  /* Brand */
+  --primary: #8B5A3C;        /* Bread crust brown */
+  --primary-hover: #754832;
+  --secondary: #EFE6DC;      /* Cream surface */
+
+  --accent: #5C3A2E;         /* Dark cocoa */
+  --accent-light: #B08A72;
+
+  /* Text */
+  --text-primary: #3A2F2A;
+  --text-secondary: #6B5B53;
+  --text-muted: #9A8C84;
+  --text-inverse: #FFFFFF;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #FBF9F6;
+  --bg-section: #F5EFE8;
+  --bg-card: #EFE6DC;
+  --bg-soft: rgba(0, 0, 0, 0.025);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 14px 40px rgba(58, 47, 42, 0.08);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #8B5A3C, #5C3A2E);
+  --gradient-soft: linear-gradient(135deg, #F5EFE8, #EFE6DC);
+
+  /* HERO */
+  --hero-bg-from: #FBF9F6;
+  --hero-bg-via: #F5EFE8;
+  --hero-bg-to: #EFE6DC;
+
+  --hero-glow-primary: rgba(139, 90, 60, 0.18);
+  --hero-glow-accent: rgba(92, 58, 46, 0.14);
+
+  --hero-badge-bg: rgba(92, 58, 46, 0.08);
+  --hero-badge-text: var(--accent);
+
+  --hero-btn-gradient-from: #5C3A2E;
+  --hero-btn-gradient-to: #8B5A3C;
+
+  --hero-outline: #8B5A3C;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #2B1F1A, #1F1612);
+  --footer-text: #FFFFFF;
+  --footer-muted: #D6C8BE;
+  --footer-border: rgba(255, 255, 255, 0.1);
+}
+
+
+.dark,
+[data-theme="dark"] {
+  --primary: #C89A77;
+  --primary-hover: #B58462;
+  --secondary: #241B16;
+
+  --accent: #E0B08C;
+  --accent-light: #E8C9AE;
+
+  /* Text */
+  --text-primary: #F3EEE9;
+  --text-secondary: #CFC6BF;
+  --text-muted: #A79C94;
+  --text-inverse: #181210;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #181210;
+  --bg-section: #201915;
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --bg-soft: rgba(255, 255, 255, 0.04);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 16px 45px rgba(0, 0, 0, 0.6);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #C89A77, #8B5A3C);
+  --gradient-soft: linear-gradient(135deg, #201915, #181210);
+
+  /* HERO */
+  --hero-bg-from: #1C1512;
+  --hero-bg-via: #201915;
+  --hero-bg-to: #15100D;
+
+  --hero-glow-primary: rgba(200, 154, 119, 0.25);
+  --hero-glow-accent: rgba(224, 176, 140, 0.22);
+
+  --hero-badge-bg: rgba(224, 176, 140, 0.14);
+  --hero-badge-text: #F1D8C3;
+
+  --hero-btn-gradient-from: #E0B08C;
+  --hero-btn-gradient-to: #C89A77;
+
+  --hero-outline: #E0B08C;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #0E0A08, #15100D);
+  --footer-text: #FFFFFF;
+  --footer-muted: #CBBEB4;
+  --footer-border: rgba(255, 255, 255, 0.08);
+}
+
+
 /* ================================================== */
 /* BASE */
 /* ================================================== */
@@ -214,7 +460,7 @@ h4 {
 
 /* Optional stronger glass for hero / specials */
 .glass-surface-strong {
-  background: color-mix(in srgb, var(--bg-card) 85%, transparent);
+  background: color-mix(in srgb, var(--hero-glow-primary) 50%, transparent);
   backdrop-filter: blur(22px);
   border: 1px solid var(--border-soft);
 }

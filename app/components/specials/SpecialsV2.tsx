@@ -16,7 +16,7 @@ export default function SpecialsV2() {
   };
 
   return (
-    <section className="relative landing-section overflow-hidden bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]">
+    <section className="relative landing-section overflow-hidden ">
 
       {/* 🌈 BACKGROUND — SAME FLOW AS HERO */}
       <div className="absolute inset-0 opacity-80" />

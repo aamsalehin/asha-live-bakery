@@ -14,12 +14,12 @@ export default function GallerySliderV2() {
 
   return (
     <section className="py-24">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl font-bold mb-10 border-l-4 pl-4 border-[var(--primary)]">
           গ্যালারি
         </h2>
 
-        <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative h-120 rounded-2xl overflow-hidden shadow-lg">
           <Image src={gallery[slide]} alt="" fill className="object-cover" />
 
           <button

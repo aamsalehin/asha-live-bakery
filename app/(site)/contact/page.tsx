@@ -262,6 +262,8 @@ import PageHero from "@/app/components/pageHero/PageHero";
 import BranchCard from "@/app/components/contact/BranchCard";
 import ContactForm from "@/app/components/contact/ContactForm";
 import FAQSection from "@/app/components/about/FAQSection";
+import BranchReviewsV3 from "@/app/components/about/BranchReviewsV3";
+import ContactFormV2 from "@/app/components/contact/ContactFormV2";
 
 export default function ContactPage() {
   return (
@@ -277,29 +279,26 @@ export default function ContactPage() {
 
       {/* FORM SECTION */}
       <section className="py-28 px-6 md:px-16">
-        <div className="max-w-4xl mx-auto">
-          <ContactForm />
+        <div className="max-w-5xl mx-auto">
+          <ContactFormV2 />
         </div>
       </section>
 
       {/* BRANCHES */}
-      <section className="pb-32 px-6 md:px-16">
+      {/* <section className="pb-32 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-
           <h2 className="text-3xl font-bold mb-12 text-[var(--text-primary)]">
             আমাদের শাখাসমূহ
           </h2>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {BRANCHES.map((branch) => (
               <BranchCard key={branch.name} branch={branch} />
             ))}
           </div>
-         
-
         </div>
-         
-      </section>
+      </section> */}
+      <BranchReviewsV3/>
+
       <FAQSection/>
 
     </main>
