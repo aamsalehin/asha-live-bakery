@@ -283,7 +283,7 @@ export default function CartPage() {
   return (
     <main
       className="px-6 md:px-16 py-24 font-[Noto_Sans_Bengali]
-      landing-bg
+      
       text-[var(--text-primary)]"
     >
       <h1 className="text-4xl font-bold mb-10">কার্ট</h1>

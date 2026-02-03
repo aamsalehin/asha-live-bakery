@@ -29,17 +29,20 @@ import AboutClosingV2 from "../../components/about/AboutClosingV2";
 import GallerySliderV2 from "@/app/components/about/GallerysliderV2";
 import BranchReviewsV3 from "@/app/components/about/BranchReviewsV3";
 import PageHero from "@/app/components/pageHero/PageHero";
+import FAQSection from "@/app/components/about/FAQSection";
+import AboutTimelineV3 from "@/app/components/about/AboutTimelineV3";
 
 export default function AboutPage() {
   return (
-    <main className="font-[Noto_Sans_Bengali] text-[var(--text-primary)] landing-bg"
+    <main className="font-[Noto_Sans_Bengali] text-[var(--text-primary)]"
         >
       <PageHero  badge="আমাদের গল্প"
   title="আশা লাইভ বেকারি"
   subtitle="তাজা, মানসম্মত ও লাইভ বেকিং অভিজ্ঞতা — সিলেটের মানুষের ভালোবাসায় গড়া।"
   icons={["🍞", "🥐", "🎂"]}/>
-      <AboutTimelineV2 />
+      <AboutTimelineV3 />
       <BranchReviewsV3 />
+      <FAQSection/>
       <GallerySliderV2 />
       <AboutClosingV2 />
     </main>

@@ -119,147 +119,189 @@
 //   );
 // }
 
+// "use client";
+
+// import { BRANCHES } from "@/data/branches";
+// import { useState } from "react";
+// import { MapPin, Phone, Send } from "lucide-react";
+// import PageHero from "@/app/components/pageHero/PageHero";
+
+// export default function ContactPage() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     phone: "",
+//     message: "",
+//   });
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+//   ) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     alert("✅ আপনার বার্তা পাঠানো হয়েছে!");
+//     setFormData({ name: "", phone: "", message: "" });
+//   };
+
+//   return (
+//     <main
+//       className="min-h-screen"
+      
+//     >
+//       {/* CONTENT */}
+//       <PageHero
+//   badge="যোগাযোগ"
+//   title="আমাদের সাথে যোগাযোগ করুন"
+//   subtitle="অর্ডার, প্রশ্ন বা পরামর্শের জন্য আমরা সবসময় প্রস্তুত।"
+//   icons={["📞", "📍", "💬"]}
+// />
+//       <section className="py-24 ">
+
+//         {/* HEADER */}
+       
+
+//         {/* GRID */}
+//         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14">
+
+//           {/* BRANCHES */}
+//           <div>
+//             <h2 className="text-2xl font-bold mb-8 border-l-4 pl-4 border-[var(--primary)]">
+//               আমাদের শাখাসমূহ
+//             </h2>
+
+//             <div className="space-y-6">
+//               {BRANCHES.map((branch) => (
+//                 <div
+//                   key={branch.name}
+//                   className="
+//                     bg-[var(--bg-card)]
+//                     border border-[var(--border-soft)]
+//                     rounded-2xl p-6
+//                     shadow-[var(--shadow-soft)]
+//                     hover:-translate-y-1 hover:shadow-xl transition
+//                   "
+//                 >
+//                   <h3 className="text-xl font-bold mb-3">{branch.name}</h3>
+
+//                   <div className="flex gap-3 text-sm text-[var(--text-secondary)] mb-2">
+//                     <MapPin className="w-4 h-4 text-[var(--primary)] mt-0.5" />
+//                     <span>{branch.address}</span>
+//                   </div>
+
+//                   <div className="flex gap-3 text-sm font-semibold">
+//                     <Phone className="w-4 h-4 text-[var(--primary)]" />
+//                     <span>{branch.phone}</span>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* FORM */}
+//           <div>
+//             <div className="glass rounded-3xl p-10 shadow-2xl">
+//               <h2 className="text-2xl font-bold mb-8 border-l-4 pl-4 border-[var(--primary)]">
+//                 যোগাযোগ ফর্ম
+//               </h2>
+
+//               <form onSubmit={handleSubmit} className="space-y-6">
+
+//                 <input
+//                   name="name"
+//                   placeholder="আপনার নাম"
+//                   value={formData.name}
+//                   onChange={handleChange}
+//                   className="w-full px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)]"
+//                   required
+//                 />
+
+//                 <input
+//                   name="phone"
+//                   placeholder="০১XXXXXXXXX"
+//                   value={formData.phone}
+//                   onChange={handleChange}
+//                   className="w-full px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)]"
+//                   required
+//                 />
+
+//                 <textarea
+//                   name="message"
+//                   placeholder="আপনার বার্তা লিখুন"
+//                   value={formData.message}
+//                   onChange={handleChange}
+//                   className="w-full h-32 px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)] resize-none"
+//                   required
+//                 />
+
+//                 <button
+//                   type="submit"
+//                   className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-white font-semibold shadow-lg hover:scale-[1.02] transition"
+//                   style={{ background: "var(--gradient-primary)" }}
+//                 >
+//                   <Send className="w-5 h-5" />
+//                   পাঠান
+//                 </button>
+
+//               </form>
+//             </div>
+//           </div>
+
+//         </div>
+//       </section>
+//     </main>
+//   );
+// }
+
+
 "use client";
 
 import { BRANCHES } from "@/data/branches";
-import { useState } from "react";
-import { MapPin, Phone, Send } from "lucide-react";
 import PageHero from "@/app/components/pageHero/PageHero";
+import BranchCard from "@/app/components/contact/BranchCard";
+import ContactForm from "@/app/components/contact/ContactForm";
+import FAQSection from "@/app/components/about/FAQSection";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("✅ আপনার বার্তা পাঠানো হয়েছে!");
-    setFormData({ name: "", phone: "", message: "" });
-  };
-
   return (
-    <main
-      className="min-h-screen"
-      style={{
-        background: `
-          radial-gradient(circle at top left, var(--hero-glow-primary), transparent 55%),
-          linear-gradient(
-            to bottom right,
-            var(--hero-bg-from),
-            var(--hero-bg-via),
-            var(--hero-bg-to)
-          )
-        `,
-      }}
-    >
-      {/* CONTENT */}
+    <main className="min-h-screen">
+
+      {/* HERO */}
       <PageHero
-  badge="যোগাযোগ"
-  title="আমাদের সাথে যোগাযোগ করুন"
-  subtitle="অর্ডার, প্রশ্ন বা পরামর্শের জন্য আমরা সবসময় প্রস্তুত।"
-  icons={["📞", "📍", "💬"]}
-/>
-      <section className="py-24 ">
+        badge="যোগাযোগ"
+        title="আমাদের সাথে যোগাযোগ করুন"
+        subtitle="অর্ডার, প্রশ্ন বা পরামর্শের জন্য আমরা সবসময় প্রস্তুত।"
+        icons={["📞", "📍", "💬"]}
+      />
 
-        {/* HEADER */}
-       
-
-        {/* GRID */}
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14">
-
-          {/* BRANCHES */}
-          <div>
-            <h2 className="text-2xl font-bold mb-8 border-l-4 pl-4 border-[var(--primary)]">
-              আমাদের শাখাসমূহ
-            </h2>
-
-            <div className="space-y-6">
-              {BRANCHES.map((branch) => (
-                <div
-                  key={branch.name}
-                  className="
-                    bg-[var(--bg-card)]
-                    border border-[var(--border-soft)]
-                    rounded-2xl p-6
-                    shadow-[var(--shadow-soft)]
-                    hover:-translate-y-1 hover:shadow-xl transition
-                  "
-                >
-                  <h3 className="text-xl font-bold mb-3">{branch.name}</h3>
-
-                  <div className="flex gap-3 text-sm text-[var(--text-secondary)] mb-2">
-                    <MapPin className="w-4 h-4 text-[var(--primary)] mt-0.5" />
-                    <span>{branch.address}</span>
-                  </div>
-
-                  <div className="flex gap-3 text-sm font-semibold">
-                    <Phone className="w-4 h-4 text-[var(--primary)]" />
-                    <span>{branch.phone}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* FORM */}
-          <div>
-            <div className="glass rounded-3xl p-10 shadow-2xl">
-              <h2 className="text-2xl font-bold mb-8 border-l-4 pl-4 border-[var(--primary)]">
-                যোগাযোগ ফর্ম
-              </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-
-                <input
-                  name="name"
-                  placeholder="আপনার নাম"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)]"
-                  required
-                />
-
-                <input
-                  name="phone"
-                  placeholder="০১XXXXXXXXX"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)]"
-                  required
-                />
-
-                <textarea
-                  name="message"
-                  placeholder="আপনার বার্তা লিখুন"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full h-32 px-5 py-3 rounded-xl bg-[var(--bg-section)] border border-[var(--border-soft)] resize-none"
-                  required
-                />
-
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-white font-semibold shadow-lg hover:scale-[1.02] transition"
-                  style={{ background: "var(--gradient-primary)" }}
-                >
-                  <Send className="w-5 h-5" />
-                  পাঠান
-                </button>
-
-              </form>
-            </div>
-          </div>
-
+      {/* FORM SECTION */}
+      <section className="py-28 px-6 md:px-16">
+        <div className="max-w-4xl mx-auto">
+          <ContactForm />
         </div>
       </section>
+
+      {/* BRANCHES */}
+      <section className="pb-32 px-6 md:px-16">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-3xl font-bold mb-12 text-[var(--text-primary)]">
+            আমাদের শাখাসমূহ
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {BRANCHES.map((branch) => (
+              <BranchCard key={branch.name} branch={branch} />
+            ))}
+          </div>
+         
+
+        </div>
+         
+      </section>
+      <FAQSection/>
+
     </main>
   );
 }

@@ -39,7 +39,7 @@ export default function BranchReviewsV3() {
               />
 
               {/* Branch Name */}
-              <h3 className="text-xl font-bold text-center mb-6">
+              <h3 className="text-xl font-bold mb-6">
                 {branch.name}
               </h3>
 

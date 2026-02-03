@@ -671,7 +671,7 @@ export default function CheckoutPage() {
   return (
     <main
       className="px-6 md:px-16 py-24
-      landing-bg
+      
       text-[var(--text-primary)]
       font-[Noto_Sans_Bengali]"
     >

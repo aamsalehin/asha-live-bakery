@@ -85,7 +85,6 @@ export default function ProductsPage() {
   return (
     <main
       className="min-h-screen px-6 pt-32 md:px-16 py-16
-      landing-bg
       text-[var(--text-primary)]
       font-[Noto_Sans_Bengali]"
     >
