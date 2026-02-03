@@ -1,5 +1,6 @@
 
 import AboutSectionV2 from "../aboutSection/AboutSectionV2";
+import CategoryGrid from "../categoryGrid/CategoryGrid";
 import CategoryGridV3 from "../categoryGrid/CategoryGridV3";
 
 
@@ -22,7 +23,7 @@ export default function HomePage() {
   return (
     <main className="">
    <HeroSectionPlain/>
-   <CategoryGridV3/>
+   <CategoryGrid/>
    <FeaturedProducts/>
    <SpecialsV2/>
    <HotItemsV4/>
