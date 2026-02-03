@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function HeroSectionPlain() {
   return (
     <section
@@ -28,19 +30,21 @@ export default function HeroSectionPlain() {
         </p>
 
         {/* CTA */}
-        <button
-          className="
-            bg-[var(--primary)]
-            hover:bg-[var(--primary-hover)]
-            text-white
-            px-8 py-4 rounded-xl
-            text-lg font-semibold
-            shadow-md hover:shadow-lg
-            transition
-          "
-        >
-          এখনই অর্ডার করুন
-        </button>
+        <Link href="/products">
+  <button
+    className="
+      bg-[var(--primary)]
+      hover:bg-[var(--primary-hover)]
+      text-white
+      px-8 py-4 rounded-xl
+      text-lg font-semibold
+      shadow-md hover:shadow-lg
+      transition cursor-pointer
+    "
+  >
+    এখনই অর্ডার করুন
+  </button>
+</Link>
 
       </div>
     </section>
