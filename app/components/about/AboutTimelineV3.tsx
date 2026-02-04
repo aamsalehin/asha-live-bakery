@@ -29,7 +29,7 @@ export default function AboutTimelineV3() {
   return (
     <section className="relative py-28 overflow-hidden">
       {/* soft background */}
-      <div className="absolute inset-0 bg-[var(--bg-section)]" />
+      <div className="absolute inset-0 bg-[var(--bg-main)]" />
 
       <div className="relative max-w-6xl mx-auto px-6">
         {/* Heading */}

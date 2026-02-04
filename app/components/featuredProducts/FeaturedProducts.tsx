@@ -69,6 +69,7 @@ import ProductCardV4 from "../productCard/ProductCardV4";
 import Link from "next/link";
 import ProductCardV5 from "../productCard/ProductCardV5";
 import ProductCardV7 from "../productCard/ProductCardV7";
+import ProductCardSimple from "../productCard/ProductCardSimple";
 
 export default function FeaturedProducts() {
   const featuredProducts = PRODUCTS.filter(
@@ -98,7 +99,7 @@ export default function FeaturedProducts() {
       {/* GRID */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {featuredProducts.map((product) => (
-          <ProductCardV7 key={product.id} product={product} />
+          <ProductCardSimple key={product.id} product={product} />
         ))}
       </div>
     </section>

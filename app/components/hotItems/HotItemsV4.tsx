@@ -53,11 +53,11 @@ export default function HotItemsV4() {
                 "
               >
                 {/* LEFT IMAGE */}
-                <div className="relative w-full sm:w-40 h-40 rounded-2xl overflow-hidden bg-[var(--bg-card)]">
+                <div className="relative w-full sm:w-40 h-40 rounded-2xl overflow-hidden bg-white">
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition"
+                    className="w-full h-full object-contain group-hover:scale-105 transition"
                   />
 
                   {/* HOT STRIP */}

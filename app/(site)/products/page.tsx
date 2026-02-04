@@ -59,6 +59,7 @@ import FilterBarV2 from "../../components/filterBar/FilterBarV2";
 import ProductCardV5 from "../../components/productCard/ProductCardV5";
 import ProductCardV6 from "@/app/components/productCard/ProductCardV6";
 import ProductCardV7 from "@/app/components/productCard/ProductCardV7";
+import ProductCardSimple from "@/app/components/productCard/ProductCardSimple";
 
 export default function ProductsPage() {
   const [active, setActive] = useState("all");
@@ -120,7 +121,7 @@ export default function ProductsPage() {
       ) : (
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {searchFiltered.map((item) => (
-            <ProductCardV7 key={item.id} product={item} />
+            <ProductCardSimple key={item.id} product={item} />
           ))}
         </div>
       )}

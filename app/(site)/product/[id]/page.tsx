@@ -72,6 +72,7 @@ import { PRODUCTS } from "@/data/Products";
 import ProductInfo from "./ProductInfo";
 import ProductCardV5 from "@/app/components/productCard/ProductCardV5";
 import ProductCardV7 from "@/app/components/productCard/ProductCardV7";
+import ProductCardSimple from "@/app/components/productCard/ProductCardSimple";
 
 
 interface PageProps {
@@ -111,14 +112,14 @@ export default async function ProductDetailsPage({ params }: PageProps) {
         <div>
           <div
             className="w-full h-96 rounded-2xl overflow-hidden
-            bg-[var(--bg-card)]
+            bg-white
             border border-[var(--border-soft)]
             shadow-[var(--shadow-soft)]"
           >
             <img
               src={product.img}
               alt={product.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
@@ -136,7 +137,7 @@ export default async function ProductDetailsPage({ params }: PageProps) {
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {relatedProducts.map((item) => (
-              <ProductCardV7 key={item.id} product={item} />
+              <ProductCardSimple key={item.id} product={item} />
             ))}
           </div>
         </section>

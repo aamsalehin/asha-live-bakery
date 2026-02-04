@@ -19,7 +19,7 @@ export default function SpecialsV2() {
     <section className="relative landing-section overflow-hidden ">
 
       {/* 🌈 BACKGROUND — SAME FLOW AS HERO */}
-      <div className="absolute inset-0 opacity-80" />
+      <div className="absolute inset-0 opacity-50" />
 
       {/* SOFT GLOWS */}
       {/* <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-[var(--primary)]/20 blur-3xl rounded-full" /> */}
@@ -34,14 +34,14 @@ export default function SpecialsV2() {
           {/* IMAGE */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-tr 
-              from-[var(--primary)]/20 to-[var(--accent)]/20
+              from-[var(--primary)]/10 to-[var(--accent)]/10
               blur-2xl rounded-3xl" />
 
-            <div className="relative w-full h-80 rounded-3xl overflow-hidden bg-[var(--bg-main)] shadow-xl">
+            <div className="relative w-full h-auto rounded-3xl overflow-hidden bg-[var(--bg-main)] shadow-xl">
               <img
                 src={product.img}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           </div>
@@ -90,3 +90,4 @@ export default function SpecialsV2() {
     </section>
   );
 }
+

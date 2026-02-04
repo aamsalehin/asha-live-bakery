@@ -31,6 +31,7 @@ import BranchReviewsV3 from "@/app/components/about/BranchReviewsV3";
 import PageHero from "@/app/components/pageHero/PageHero";
 import FAQSection from "@/app/components/about/FAQSection";
 import AboutTimelineV3 from "@/app/components/about/AboutTimelineV3";
+import HowWeWorkSection from "@/app/components/howWeWorkSection/HowWeWorkSection";
 
 export default function AboutPage() {
   return (
@@ -41,6 +42,7 @@ export default function AboutPage() {
   subtitle="তাজা, মানসম্মত ও লাইভ বেকিং অভিজ্ঞতা — সিলেটের মানুষের ভালোবাসায় গড়া।"
   icons={["🍞", "🥐", "🎂"]}/>
       <AboutTimelineV3 />
+      <HowWeWorkSection/>
       <BranchReviewsV3 />
       <FAQSection/>
       <GallerySliderV2 />

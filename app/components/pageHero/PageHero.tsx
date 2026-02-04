@@ -14,11 +14,11 @@ export default function PageHero({
   icons = [],
 }: PageHeroProps) {
   return (
-   <section className="relative py-24 px-6 md:px-16 ">
+   <section className="relative py-24 px-6 md:px-16 bg-[var(--secondary)] ">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]" />
+      {/* <div className="absolute inset-0 bg-[var(--light-bg)] dark:bg-[var(--dark-bg)]" />
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-[var(--primary)]/20 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent)]/20 blur-3xl rounded-full" /> 
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent)]/20 blur-3xl rounded-full" />  */}
 
       {/* Floating Icons */}
         {icons.length > 0 && (

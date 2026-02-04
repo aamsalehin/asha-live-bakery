@@ -79,8 +79,8 @@ export default function FAQSection() {
       <div className="absolute inset-0 bg-[var(--bg-section)] dark:bg-[var(--bg-section)]" />
 
       {/* GLOW */}
-      <div className="absolute -top-32 left-0 w-96 h-96 bg-[var(--primary)]/20 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent)]/20 blur-3xl rounded-full" />
+      {/* <div className="absolute -top-32 left-0 w-96 h-96 bg-[var(--primary)]/20 blur-3xl rounded-full" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--accent)]/20 blur-3xl rounded-full" /> */}
 
       <div className="relative max-w-5xl mx-auto">
 
@@ -115,7 +115,7 @@ export default function FAQSection() {
                 key={index}
                 className="
                   rounded-2xl
-                  glass-surface-strong
+                  glass-surface
                   backdrop-blur-xl
                   border border-white/40 dark:border-white/10
                   shadow-lg
