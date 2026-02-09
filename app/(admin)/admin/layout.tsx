@@ -1,6 +1,5 @@
 import Sidebar from "@/app/components/admin/sidebar/Sidebar";
 
-
 export default function AdminLayout({
   children,
 }: {
@@ -9,7 +8,7 @@ export default function AdminLayout({
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <main className="flex-1 bg-gray-100 p-8 ml-64">
+      <main className="flex-1 p-6 md:ml-64 bg-[var(--admin-bg)] min-h-screen">
         {children}
       </main>
     </div>

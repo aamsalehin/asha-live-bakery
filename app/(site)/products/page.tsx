@@ -87,7 +87,7 @@ export default function ProductsPage() {
 
   return (
     <main
-      className="min-h-screen px-6 pt-32 md:px-16 py-16
+      className="min-h-screen px-6  md:px-16 py-8 md:py-16
       text-[var(--text-primary)]
       font-[Noto_Sans_Bengali]"
     >
@@ -119,7 +119,7 @@ export default function ProductsPage() {
           </p>
         </div>
       ) : (
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-0 md:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {searchFiltered.map((item) => (
             <ProductCardSimple key={item.id} product={item} />
           ))}

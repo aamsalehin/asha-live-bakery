@@ -377,6 +377,299 @@
 }
 
 
+
+/* dark colors palate  */
+
+
+
+:root {
+  /* Brand */
+  --primary: #C75A3A;              /* Refined logo orange */
+  --primary-hover: #B24D32;
+  --secondary: #F3E6DA;            /* Soft cream */
+
+  --accent: #8A2F1F;               /* Deep bakery red-brown */
+  --accent-light: #E6B9A6;
+
+  /* Text */
+  --text-primary: #2F1F1A;         /* Dark cocoa */
+  --text-secondary: #5E463C;
+  --text-muted: #8C776E;
+  --text-inverse: #FFFFFF;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #FFFFFF;              /* MAIN PAGE WHITE */
+  --bg-section: #FBF4EE;           /* Soft bakery cream */
+  --bg-card: #F5E8DE;
+  --bg-soft: rgba(0, 0, 0, 0.025);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(47, 31, 26, 0.08);
+  --shadow-soft: 0 14px 38px rgba(47, 31, 26, 0.08);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #C75A3A, #8A2F1F);
+  --gradient-soft: linear-gradient(135deg, #FBF4EE, #F5E8DE);
+
+  /* HERO */
+  --hero-bg-from: #FFFFFF;
+  --hero-bg-via: #FBF4EE;
+  --hero-bg-to: #F5E8DE;
+
+  --hero-glow-primary: rgba(199, 90, 58, 0.18);
+  --hero-glow-accent: rgba(138, 47, 31, 0.14);
+
+  --hero-badge-bg: rgba(199, 90, 58, 0.1);
+  --hero-badge-text: var(--primary);
+
+  --hero-btn-gradient-from: #C75A3A;
+  --hero-btn-gradient-to: #8A2F1F;
+
+  --hero-outline: #C75A3A;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #2A1813, #1E120E);
+  --footer-text: #FFFFFF;
+  --footer-muted: #E1CFC4;
+  --footer-border: rgba(255, 255, 255, 0.1);
+}
+
+
+.dark,
+[data-theme="dark"] {
+  --primary: #E07A55;
+  --primary-hover: #C75A3A;
+  --secondary: #2A1A15;
+
+  --accent: #F0B29A;
+  --accent-light: #F6D2C4;
+
+  /* Text */
+  --text-primary: #F6EEE9;
+  --text-secondary: #D6C5BB;
+  --text-muted: #A99186;
+  --text-inverse: #1A0F0C;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #1A0F0C;
+  --bg-section: #221410;
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --bg-soft: rgba(255, 255, 255, 0.04);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #E07A55, #C75A3A);
+  --gradient-soft: linear-gradient(135deg, #221410, #1A0F0C);
+
+  /* HERO */
+  --hero-bg-from: #1F120E;
+  --hero-bg-via: #221410;
+  --hero-bg-to: #160C09;
+
+  --hero-glow-primary: rgba(224, 122, 85, 0.28);
+  --hero-glow-accent: rgba(240, 178, 154, 0.22);
+
+  --hero-badge-bg: rgba(224, 122, 85, 0.16);
+  --hero-badge-text: #FFD9C9;
+
+  --hero-btn-gradient-from: #E07A55;
+  --hero-btn-gradient-to: #C75A3A;
+
+  --hero-outline: #E07A55;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #120907, #1A0F0C);
+  --footer-text: #FFFFFF;
+  --footer-muted: #D2BEB3;
+  --footer-border: rgba(255, 255, 255, 0.08);
+}
+/* cozy color  */
+
+
+:root {
+  /* Brand */
+  --primary: #B65A3C;              /* Toasted bread */
+  --primary-hover: #9F4C33;
+  --secondary: #F6EEE6;            /* Warm cream */
+
+  --accent: #6F3B2A;               /* Cocoa brown */
+  --accent-light: #E2B8A3;
+
+  /* Text */
+  --text-primary: #2E1E18;         /* Dark chocolate */
+  --text-secondary: #5A4036;
+  --text-muted: #8B7267;
+  --text-inverse: #FFFFFF;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #FFFFFF;              /* CLEAN WHITE */
+  --bg-section: #FBF3EC;           /* Bakery paper */
+  --bg-card: #F4E7DD;
+  --bg-soft: rgba(46, 30, 24, 0.025);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(46, 30, 24, 0.08);
+  --shadow-soft: 0 12px 34px rgba(46, 30, 24, 0.08);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #B65A3C, #6F3B2A);
+  --gradient-soft: linear-gradient(135deg, #FBF3EC, #F4E7DD);
+
+  /* HERO */
+  --hero-bg-from: #FFFFFF;
+  --hero-bg-via: #FBF3EC;
+  --hero-bg-to: #F4E7DD;
+
+  --hero-glow-primary: rgba(182, 90, 60, 0.16);
+  --hero-glow-accent: rgba(111, 59, 42, 0.12);
+
+  --hero-badge-bg: rgba(182, 90, 60, 0.1);
+  --hero-badge-text: var(--primary);
+
+  --hero-btn-gradient-from: #B65A3C;
+  --hero-btn-gradient-to: #6F3B2A;
+
+  --hero-outline: #B65A3C;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #261611, #1A0F0C);
+  --footer-text: #FFFFFF;
+  --footer-muted: #E3CEC2;
+  --footer-border: rgba(255, 255, 255, 0.1);
+}
+.dark,
+[data-theme="dark"] {
+  --primary: #D98A63;
+  --primary-hover: #B65A3C;
+  --secondary: #2A1A15;
+
+  --accent: #F0C1A6;
+  --accent-light: #F6D8C7;
+
+  /* Text */
+  --text-primary: #F7EFE9;
+  --text-secondary: #D9C7BC;
+  --text-muted: #B29A8E;
+  --text-inverse: #1A0F0C;
+
+  --text-dark: var(--text-primary);
+  --text-light: var(--text-inverse);
+
+  /* Backgrounds */
+  --bg-main: #1A0F0C;
+  --bg-section: #231511;
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --bg-soft: rgba(255, 255, 255, 0.04);
+
+  --light-bg: var(--bg-section);
+
+  /* Borders & shadows */
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #D98A63, #B65A3C);
+  --gradient-soft: linear-gradient(135deg, #231511, #1A0F0C);
+
+  /* HERO */
+  --hero-bg-from: #1F120E;
+  --hero-bg-via: #231511;
+  --hero-bg-to: #150C09;
+
+  --hero-glow-primary: rgba(217, 138, 99, 0.26);
+  --hero-glow-accent: rgba(240, 193, 166, 0.22);
+
+  --hero-badge-bg: rgba(217, 138, 99, 0.16);
+  --hero-badge-text: #FFE1CF;
+
+  --hero-btn-gradient-from: #D98A63;
+  --hero-btn-gradient-to: #B65A3C;
+
+  --hero-outline: #D98A63;
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(135deg, #120907, #1A0F0C);
+  --footer-text: #FFFFFF;
+  --footer-muted: #D7C1B6;
+  --footer-border: rgba(255, 255, 255, 0.08);
+}
+/* admin dashboarad colors*/
+
+/* ================================================== */
+/* 🧩 ADMIN THEME VARIABLES (LIGHT) */
+/* ================================================== */
+:root {
+  /* Sidebar */
+  --admin-sidebar-bg: #0f172a;          /* slate-900 */
+  --admin-sidebar-border: #1e293b;      /* slate-800 */
+
+  --admin-sidebar-text: #cbd5f5;        /* slate-300 */
+  --admin-sidebar-text-muted: #94a3b8;  /* slate-400 */
+
+  --admin-sidebar-hover-bg: #1e293b;    /* slate-800 */
+  --admin-sidebar-active-bg: #2563eb;   /* blue-600 */
+  --admin-sidebar-active-text: #ffffff;
+
+  /* Main area */
+  --admin-bg: #f1f5f9;                  /* slate-100 */
+  --admin-card-bg: #ffffff;
+  --admin-card-border: rgba(0,0,0,0.08);
+
+  /* Buttons */
+  --admin-button-bg: #2563eb;
+  --admin-button-hover: #1d4ed8;
+  --admin-button-text: #ffffff;
+
+  /* Accent */
+  --admin-accent: #38bdf8;              /* sky-400 */
+}
+
+
+/* ================================================== */
+/* 🌙 ADMIN THEME VARIABLES (DARK) */
+/* ================================================== */
+.dark,
+[data-theme="dark"] {
+  --admin-sidebar-bg: #020617;           /* slate-950 */
+  --admin-sidebar-border: #020617;
+
+  --admin-sidebar-text: #cbd5f5;
+  --admin-sidebar-text-muted: #94a3b8;
+
+  --admin-sidebar-hover-bg: #020617;
+  --admin-sidebar-active-bg: #1d4ed8;
+  --admin-sidebar-active-text: #ffffff;
+
+  --admin-bg: #020617;
+  --admin-card-bg: #020617;
+  --admin-card-border: rgba(255,255,255,0.08);
+
+  --admin-button-bg: #1d4ed8;
+  --admin-button-hover: #2563eb;
+  --admin-button-text: #ffffff;
+
+  --admin-accent: #38bdf8;
+}
+
+
 /* ================================================== */
 /* BASE */
 /* ================================================== */
@@ -409,7 +702,9 @@ h4 {
 /* ================================================== */
 /* LANDING PAGE BACKGROUND */
 /* ================================================== */
-
+.bg-soft-gradient{
+  background: var(--gradient-soft);
+}
 .landing-bg {
   background:
     radial-gradient(
@@ -464,3 +759,5 @@ h4 {
   backdrop-filter: blur(22px);
   border: 1px solid var(--border-soft);
 }
+
+

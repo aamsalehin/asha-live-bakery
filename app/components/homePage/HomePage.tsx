@@ -12,7 +12,7 @@ import SpecialsSectionV4 from "../specials/SpecialsSectionV4";
 
 export default function HomePage() {
   return (
-    <main className="">
+    <main>
    <HeroSectionPlain/>
    <CategoryGrid/>
    <FeaturedProducts/>

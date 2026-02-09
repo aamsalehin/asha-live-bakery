@@ -1,47 +1,277 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 // generator client {
-//   provider = "prisma-client-js"
+//   provider = "prisma-client"
 //   output   = "../app/generated/prisma"
 // }
 
+// datasource db {
+//   provider = "postgresql"
+// }
+
+// // model Branch {
+// //   id           String   @id @default(uuid())
+// //   name         String
+// //   phone        String
+// //   managerName  String
+// //   address      String
+// //   description  String?
+// //   isActive     Boolean  @default(true)
+
+// //   createdAt    DateTime @default(now())
+// //   updatedAt    DateTime @updatedAt
+
+// //   @@unique([name])
+// // }
+// model Branch {
+//   id          Int     @id @default(autoincrement())
+//   name        String  @unique
+//   phone       String
+//   managerName String
+//   address     String
+//   description String?
+
+//   createdAt DateTime @default(now())
+
+//   productions ProductionDay[]
+// }
+
+// model Category {
+//   id        Int      @id @default(autoincrement())
+//   name      String   @unique
+//   slug      String   @unique
+//   createdAt DateTime @default(now())
+
+//   products Product[]
+// }
+
+// // model Product {
+// //   id                Int       @id @default(autoincrement())
+// //   name              String
+// //   price             Int
+// //   unit              String
+// //   image             String
+// //   description       String
+// //   ingredients       String[]
+// //   featuredProduct   Boolean   @default(false)
+// //   productOfTheDay   Boolean   @default(false)
+
+// //   categoryId        Int
+// //   category          Category  @relation(fields: [categoryId], references: [id])
+
+// //   createdAt         DateTime  @default(now())
+// //   updatedAt         DateTime  @updatedAt
+
+// //   @@index([categoryId])
+// // }
+// model Product {
+//   id          Int      @id @default(autoincrement())
+//   name        String
+//   price       Float
+//   unit        String
+//   image       String?
+//   description String?
+//   ingredients String[]
+
+//   featuredProduct Boolean @default(false)
+//   productOfTheDay Boolean @default(false)
+
+//   categoryId Int
+//   category   Category @relation(fields: [categoryId], references: [id])
+
+//   createdAt DateTime @default(now())
+
+//   // ✅ ADD THIS LINE
+//   productionItems ProductionItem[]
+// }
+
+// model Supplier {
+//   id      Int    @id @default(autoincrement())
+//   name    String
+//   phone   String
+//   address String
+
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
+
+// model ProductionDay {
+//   id       Int      @id @default(autoincrement())
+//   date     DateTime
+//   branchId Int
+
+//   createdAt DateTime @default(now())
+
+//   branch Branch           @relation(fields: [branchId], references: [id])
+//   items  ProductionItem[]
+
+//   @@unique([date, branchId])
+// }
+
+// model ProductionItem {
+//   id Int @id @default(autoincrement())
+
+//   productionDayId Int
+//   productId       Int
+
+//   quantity Int
+//   unit     String
+
+//   productionDay ProductionDay @relation(fields: [productionDayId], references: [id], onDelete: Cascade)
+//   product       Product       @relation(fields: [productId], references: [id])
+
+//   @@unique([productionDayId, productId])
+// }
 
 generator client {
   provider = "prisma-client"
-  output   = "../../generated/prisma"
+  output   = "../app/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
 
-model Order {
-  id             String      @id @default(uuid())
-  phone          String
-  name           String?
-  address        String
-  subtotal       Int
-  deliveryCharge Int
-  total          Int
-  status         String      @default("pending")
-  createdAt      DateTime    @default(now())
+/**
+ * ===================== BRANCH =====================
+ */
+model Branch {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  phone       String
+  managerName String
+  address     String
+  description String?
 
-  items          OrderItem[]
+  createdAt DateTime @default(now())
+
+  productions ProductionDay[]
+  employees   Employee[] 
 }
 
-model OrderItem {
-  id        String   @id @default(uuid())
-  orderId   String
-  productId Int
+/**
+ * ===================== CATEGORY =====================
+ */
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  products Product[]
+}
+
+/**
+ * ===================== PRODUCT =====================
+ */
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  price       Float
+  unit        String
+  image       String?
+  description String?
+  ingredients String[]
+
+  featuredProduct Boolean @default(false)
+  productOfTheDay Boolean @default(false)
+
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  productionItems ProductionItem[] // ✅ REQUIRED
+}
+
+/**
+ * ===================== SUPPLIER =====================
+ */
+model Supplier {
+  id      Int    @id @default(autoincrement())
+  name    String
+  phone   String
+  address String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/**
+ * ===================== PRODUCTION DAY =====================
+ */
+model ProductionDay {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  branchId  Int
+  createdAt DateTime @default(now())
+
+  branch Branch           @relation(fields: [branchId], references: [id])
+  items  ProductionItem[]
+
+  @@unique([date, branchId])
+}
+
+model ProductionItem {
+  id              Int    @id @default(autoincrement())
+  productionDayId Int
+  productId       Int
+  quantity        Int
+  unit            String
+
+  productionDay ProductionDay @relation(fields: [productionDayId], references: [id], onDelete: Cascade)
+  product       Product       @relation(fields: [productId], references: [id])
+
+  @@unique([productionDayId, productId])
+}
+
+model RawMaterial {
+  id        Int      @id @default(autoincrement())
   name      String
-  price     Int
-  qty       Int
+  brand     String
+  quantity  Float
   unit      String
+  price     Float?
 
-  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
 }
+model Accessory {
+  id          Int      @id @default(autoincrement())
+  name        String
+  unit        String   // pcs, kg, roll, box, etc
+  quantity    Float
+  pricePerUnit Float?  // optional
+  brand       String?
+  description String?
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Employee {
+  id            Int      @id @default(autoincrement())
+
+  name          String
+  image         String?
+  phone         String
+  email         String?
+  address       String
+
+  salary        Float
+
+  // Bank details (optional)
+  bankName      String?
+  branchName    String?
+  accountName   String?
+  accountNumber String?
+
+  education     String?
+  notes         String?
+
+  branchId      Int
+  branch        Branch   @relation(fields: [branchId], references: [id])
+
+  isActive      Boolean  @default(true)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([branchId])
+}

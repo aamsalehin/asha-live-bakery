@@ -116,18 +116,18 @@ export default function ProductCardSimple({
   };
 
   return (
-    <div className="group">
+    <div className="group  p-3 rounded bg-[var(--bg-main)]">
 
       {/* IMAGE (CLICKABLE) */}
       <Link href={`/product/${product.id}`}>
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden border border-[var(--accent)] rounded">
           <img
             src={product.img}
             alt={product.name}
             className="
               w-full object-contain
               transition-transform duration-500
-              group-hover:scale-105
+              group-hover:scale-105 overflow-hidden
             "
           />
 
