@@ -145,6 +145,9 @@ model Branch {
 
   productions ProductionDay[]
   employees   Employee[] 
+  sales       SalesDay[]
+  actualSales ActualSalesDay[]
+
 }
 
 /**
@@ -180,6 +183,7 @@ model Product {
   createdAt DateTime @default(now())
 
   productionItems ProductionItem[] // ✅ REQUIRED
+  salesItems      SalesItem[]
 }
 
 /**
@@ -274,4 +278,51 @@ model Employee {
   updatedAt     DateTime @updatedAt
 
   @@index([branchId])
+}
+
+// daily sales calculation
+
+model SalesDay {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  branchId  Int
+
+  createdAt DateTime @default(now())
+
+  branch Branch @relation(fields: [branchId], references: [id])
+  items  SalesItem[]
+
+  @@unique([date, branchId])
+}
+
+model SalesItem {
+  id         Int @id @default(autoincrement())
+
+  salesDayId Int
+  productId  Int
+
+  quantity   Int
+  unit       String
+  unitPrice  Float
+  totalPrice Float
+
+  salesDay SalesDay @relation(fields: [salesDayId], references: [id], onDelete: Cascade)
+  product  Product  @relation(fields: [productId], references: [id])
+
+  @@unique([salesDayId, productId])
+}
+
+model ActualSalesDay {
+  id        Int      @id @default(autoincrement())
+  date      DateTime
+  branchId  Int
+
+  amount    Float    // total sales amount for the day
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  branch Branch @relation(fields: [branchId], references: [id])
+
+  @@unique([date, branchId])
 }

@@ -33,10 +33,10 @@ export default function SpecialsSectionV4() {
         >
           {/* IMAGE */}
           <img
-            src={product.img}
+            src="/images/products/bun-items/burger-bun.png"
             alt={product.name}
             className="
-              w-full h-[420px] md:h-[480px] object-contain
+              w-full h-[420px] md:h-[480px] object-cover
               transition-transform duration-700
               group-hover:scale-105
             "

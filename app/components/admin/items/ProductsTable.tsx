@@ -150,9 +150,177 @@
 // }
 
 
+// "use client";
+
+// import { Pencil, Star, StarOff, Sparkles, Trash2 } from "lucide-react";
+// import AdminTable, { AdminTableColumn } from "@/app/components/admin/ui/AdminTable";
+
+// type ProductRow = {
+//   id: number;
+//   name: string;
+//   price: number;
+//   unit: string;
+//   featuredProduct: boolean;
+//   productOfTheDay: boolean;
+//   category?: { name: string } | null;
+// };
+
+// type Props = {
+//   products: ProductRow[];
+//   onChange: () => void;
+//   onEdit?: (product: ProductRow) => void; // ✅ for edit modal later
+// };
+
+// export default function ProductTable({ products, onChange, onEdit }: Props) {
+//   const toggle = async (
+//     id: number,
+//     field: "featuredProduct" | "productOfTheDay",
+//     value: boolean
+//   ) => {
+//     await fetch("/api/admin/products", {
+//       method: "PATCH",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ id, [field]: !value }),
+//     });
+//     onChange();
+//   };
+
+//   const remove = async (id: number) => {
+//     if (!confirm("Delete this product?")) return;
+
+//     await fetch("/api/admin/products", {
+//       method: "DELETE",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ id }),
+//     });
+//     onChange();
+//   };
+
+//   const columns: AdminTableColumn<ProductRow>[] = [
+//     {
+//       key: "name",
+//       header: "Name",
+//       render: (p) => (
+//         <span className="font-medium">{p.name}</span>
+//       ),
+//     },
+//     {
+//       key: "category",
+//       header: "Category",
+//       render: (p) => (
+//         <span className="text-[var(--admin-muted)]">
+//           {p.category?.name || "-"}
+//         </span>
+//       ),
+//     },
+//     {
+//       key: "price",
+//       header: "Price",
+//       render: (p) => <span>৳ {p.price}</span>,
+//     },
+//     {
+//       key: "unit",
+//       header: "Unit",
+//       render: (p) => (
+//         <span className="text-[var(--admin-muted)]">{p.unit}</span>
+//       ),
+//     },
+//     {
+//       key: "featured",
+//       header: "Featured",
+//       align: "center",
+//       render: (p) => (
+//         <button
+//           onClick={() => toggle(p.id, "featuredProduct", p.featuredProduct)}
+//           className="
+//             inline-flex items-center justify-center
+//             w-8 h-8 rounded-lg
+//             hover:bg-[var(--admin-soft-bg)]
+//           "
+//           title="Toggle Featured"
+//         >
+//           {p.featuredProduct ? (
+//             <Star className="w-4 h-4 text-[var(--admin-accent)]" />
+//           ) : (
+//             <StarOff className="w-4 h-4 opacity-40" />
+//           )}
+//         </button>
+//       ),
+//     },
+//     {
+//       key: "day",
+//       header: "Day",
+//       align: "center",
+//       render: (p) => (
+//         <button
+//           onClick={() => toggle(p.id, "productOfTheDay", p.productOfTheDay)}
+//           className="
+//             inline-flex items-center justify-center
+//             w-8 h-8 rounded-lg
+//             hover:bg-[var(--admin-soft-bg)]
+//           "
+//           title="Toggle Product of the Day"
+//         >
+//           <Sparkles
+//             className={`w-4 h-4 ${
+//               p.productOfTheDay ? "text-[var(--admin-primary)]" : "opacity-40"
+//             }`}
+//           />
+//         </button>
+//       ),
+//     },
+//     {
+//       key: "actions",
+//       header: "Actions",
+//       align: "right",
+//       render: (p) => (
+//         <div className="inline-flex items-center gap-1 justify-end">
+//           <button
+//             onClick={() => onEdit?.(p)}
+//             className="
+//               inline-flex items-center justify-center
+//               w-8 h-8 rounded-lg
+//               hover:bg-[var(--admin-soft-bg)]
+//               text-[var(--admin-text)]
+//             "
+//             title="Edit"
+//             type="button"
+//           >
+//             <Pencil className="w-4 h-4" />
+//           </button>
+
+//           <button
+//             onClick={() => remove(p.id)}
+//             className="
+//               inline-flex items-center justify-center
+//               w-8 h-8 rounded-lg
+//               hover:bg-[var(--admin-soft-bg)]
+//               text-[var(--admin-danger)]
+//             "
+//             title="Delete"
+//             type="button"
+//           >
+//             <Trash2 className="w-4 h-4" />
+//           </button>
+//         </div>
+//       ),
+//     },
+//   ];
+
+//   return (
+//     <AdminTable
+//       columns={columns}
+//       rows={products}
+//       emptyText="No products found"
+//       rowKey={(row) => row.id}
+//     />
+//   );
+// }
+
+
 "use client";
 
-import { Pencil, Star, StarOff, Sparkles, Trash2 } from "lucide-react";
+import { Pencil, Star, StarOff, Trash2, Flame, FlameKindling } from "lucide-react";
 import AdminTable, { AdminTableColumn } from "@/app/components/admin/ui/AdminTable";
 
 type ProductRow = {
@@ -168,20 +336,17 @@ type ProductRow = {
 type Props = {
   products: ProductRow[];
   onChange: () => void;
-  onEdit?: (product: ProductRow) => void; // ✅ for edit modal later
+  onEdit?: (product: ProductRow) => void;
 };
 
 export default function ProductTable({ products, onChange, onEdit }: Props) {
-  const toggle = async (
-    id: number,
-    field: "featuredProduct" | "productOfTheDay",
-    value: boolean
-  ) => {
-    await fetch("/api/admin/products", {
+  const toggle = async (id: number, field: "featuredProduct" | "productOfTheDay") => {
+    await fetch("/api/admin/products/toggle", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, [field]: !value }),
+      body: JSON.stringify({ id, field }),
     });
+
     onChange();
   };
 
@@ -193,6 +358,7 @@ export default function ProductTable({ products, onChange, onEdit }: Props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
+
     onChange();
   };
 
@@ -200,17 +366,13 @@ export default function ProductTable({ products, onChange, onEdit }: Props) {
     {
       key: "name",
       header: "Name",
-      render: (p) => (
-        <span className="font-medium">{p.name}</span>
-      ),
+      render: (p) => <span className="font-medium">{p.name}</span>,
     },
     {
       key: "category",
       header: "Category",
       render: (p) => (
-        <span className="text-[var(--admin-muted)]">
-          {p.category?.name || "-"}
-        </span>
+        <span className="text-[var(--admin-muted)]">{p.category?.name || "-"}</span>
       ),
     },
     {
@@ -221,54 +383,61 @@ export default function ProductTable({ products, onChange, onEdit }: Props) {
     {
       key: "unit",
       header: "Unit",
-      render: (p) => (
-        <span className="text-[var(--admin-muted)]">{p.unit}</span>
-      ),
+      render: (p) => <span className="text-[var(--admin-muted)]">{p.unit}</span>,
     },
+
+    // ✅ Featured (more visual)
     {
       key: "featured",
       header: "Featured",
       align: "center",
       render: (p) => (
         <button
-          onClick={() => toggle(p.id, "featuredProduct", p.featuredProduct)}
+          onClick={() => toggle(p.id, "featuredProduct")}
           className="
             inline-flex items-center justify-center
             w-8 h-8 rounded-lg
             hover:bg-[var(--admin-soft-bg)]
+            transition
           "
-          title="Toggle Featured"
+          title={p.featuredProduct ? "Remove Featured" : "Make Featured"}
+          type="button"
         >
           {p.featuredProduct ? (
-            <Star className="w-4 h-4 text-[var(--admin-accent)]" />
+            <Star className="w-5 h-5 text-[var(--admin-accent)] fill-[var(--admin-accent)]" />
           ) : (
-            <StarOff className="w-4 h-4 opacity-40" />
+            <StarOff className="w-5 h-5 opacity-50" />
           )}
         </button>
       ),
     },
+
+    // ✅ Product of the day (better than sparkles)
     {
       key: "day",
       header: "Day",
       align: "center",
       render: (p) => (
         <button
-          onClick={() => toggle(p.id, "productOfTheDay", p.productOfTheDay)}
+          onClick={() => toggle(p.id, "productOfTheDay")}
           className="
             inline-flex items-center justify-center
             w-8 h-8 rounded-lg
             hover:bg-[var(--admin-soft-bg)]
+            transition
           "
-          title="Toggle Product of the Day"
+          title={p.productOfTheDay ? "Remove Product of the Day" : "Make Product of the Day"}
+          type="button"
         >
-          <Sparkles
-            className={`w-4 h-4 ${
-              p.productOfTheDay ? "text-[var(--admin-primary)]" : "opacity-40"
-            }`}
-          />
+          {p.productOfTheDay ? (
+            <Flame className="w-5 h-5 text-[var(--admin-primary)]" />
+          ) : (
+            <FlameKindling className="w-5 h-5 opacity-50" />
+          )}
         </button>
       ),
     },
+
     {
       key: "actions",
       header: "Actions",
