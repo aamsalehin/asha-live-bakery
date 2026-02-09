@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import AddEmployeeModal from "@/app/components/admin/employees/AddEmployeeModal";
 import EmployeeTable from "@/app/components/admin/employees/EmployeeTable";
+import { useEffect, useState } from "react";
+
 
 export default function EmployeesPage() {
   const [employees, setEmployees] = useState([]);
