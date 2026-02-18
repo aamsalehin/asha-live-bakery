@@ -554,6 +554,19 @@
   --footer-text: #FFFFFF;
   --footer-muted: #E3CEC2;
   --footer-border: rgba(255, 255, 255, 0.1);
+
+  /* ramdan emerald  */
+   --ramadan-emerald: #064e3b;
+  --ramadan-emerald-soft: #065f46;
+  --ramadan-gold: #d4af37;
+  --ramadan-gold-soft: #f5d76e;
+  /* ultra luxury */
+   --lux-black: #0b0b0c;
+  --lux-black-soft: #111112;
+  --lux-gold: #c6a55c;
+  --lux-gold: #f5e6b3;
+  --lux-gold-light: #f5e6b3;
+  --lux-gold-deep: #9f7c2a;
 }
 .dark,
 [data-theme="dark"] {

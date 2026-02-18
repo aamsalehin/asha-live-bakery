@@ -147,6 +147,7 @@ model Branch {
   employees   Employee[] 
   sales       SalesDay[]
   actualSales ActualSalesDay[]
+  purchases   Purchase[]
 
 }
 
@@ -197,6 +198,7 @@ model Supplier {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  purchases Purchase[]
 }
 
 /**
@@ -236,6 +238,7 @@ model RawMaterial {
   price     Float?
 
   createdAt DateTime @default(now())
+   purchaseItems PurchaseItem[] 
 }
 model Accessory {
   id          Int      @id @default(autoincrement())
@@ -326,3 +329,39 @@ model ActualSalesDay {
 
   @@unique([date, branchId])
 }
+
+model Purchase {
+  id            Int      @id @default(autoincrement())
+  date          DateTime
+  branchId      Int
+  supplierId    Int
+
+  invoiceNumber String?
+  totalAmount   Float?
+  notes         String?
+
+  createdAt     DateTime @default(now())
+
+  branch   Branch   @relation(fields: [branchId], references: [id])
+  supplier Supplier @relation(fields: [supplierId], references: [id])
+  items    PurchaseItem[]
+
+  @@index([date])
+}
+
+
+model PurchaseItem {
+  id            Int @id @default(autoincrement())
+
+  purchaseId    Int
+  rawMaterialId Int
+
+  quantity      Float
+  unit          String
+  unitPrice     Float
+  totalPrice    Float
+
+  purchase     Purchase    @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  rawMaterial  RawMaterial @relation(fields: [rawMaterialId], references: [id])
+}
+
