@@ -1,74 +1,74 @@
-"use client";
+// "use client";
 
-import { RAMADAN_PRODUCTS } from "@/data/ramadanProducts";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import LanternDecoration from "./LanternDecoration";
+// import { RAMADAN_PRODUCTS } from "@/data/ramadanProducts";
+// import { motion } from "framer-motion";
+// import Link from "next/link";
+// import LanternDecoration from "./LanternDecoration";
 
-export default function RamadanPage() {
-  return (
-    <div className="relative min-h-screen py-24 px-6 md:px-16 bg-[var(--bg-section)] dark:bg-[var(--bg-section)] overflow-hidden">
+// export default function RamadanPage() {
+//   return (
+//     <div className="relative min-h-screen py-24 px-6 md:px-16 bg-[var(--bg-section)] dark:bg-[var(--bg-section)] overflow-hidden">
 
-      {/* Islamic Pattern Background */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/islamic-pattern.svg')] bg-repeat"></div>
+//       {/* Islamic Pattern Background */}
+//       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/images/islamic-pattern.svg')] bg-repeat"></div>
 
-      {/* Animated Lanterns */}
-      <LanternDecoration />
+//       {/* Animated Lanterns */}
+//       <LanternDecoration />
 
-      <div className="relative z-10 max-w-5xl mx-auto">
+//       <div className="relative z-10 max-w-5xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
-            🌙 রমজান স্পেশাল মেনু
-          </h1>
-          <p className="text-lg text-[var(--text-secondary)]">
-            ইফতারের জন্য তাজা ও বিশেষ প্রস্তুত আইটেম
-          </p>
-        </div>
+//         {/* Header */}
+//         <div className="text-center mb-16">
+//           <h1 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4">
+//             🌙 রমজান স্পেশাল মেনু
+//           </h1>
+//           <p className="text-lg text-[var(--text-secondary)]">
+//             ইফতারের জন্য তাজা ও বিশেষ প্রস্তুত আইটেম
+//           </p>
+//         </div>
 
-        {/* Menu List */}
-        <div className="space-y-8">
-          {RAMADAN_PRODUCTS.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              className="
-                flex justify-between items-center
-                border-b border-neutral-200 dark:border-neutral-800
-                pb-6
-              "
-            >
-              <div>
-                <h3 className="text-xl font-semibold text-[var(--text-primary)]">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-[var(--text-secondary)] mt-1">
-                  {product.description}
-                </p>
-              </div>
+//         {/* Menu List */}
+//         <div className="space-y-8">
+//           {RAMADAN_PRODUCTS.map((product, index) => (
+//             <motion.div
+//               key={product.id}
+//               initial={{ opacity: 0, y: 30 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ delay: index * 0.05 }}
+//               className="
+//                 flex justify-between items-center
+//                 border-b border-neutral-200 dark:border-neutral-800
+//                 pb-6
+//               "
+//             >
+//               <div>
+//                 <h3 className="text-xl font-semibold text-[var(--text-primary)]">
+//                   {product.name}
+//                 </h3>
+//                 <p className="text-sm text-[var(--text-secondary)] mt-1">
+//                   {product.description}
+//                 </p>
+//               </div>
 
-              <div className="text-right">
-                <p className="text-xl font-bold text-[var(--primary)]">
-                  ৳ {product.price}
-                </p>
+//               <div className="text-right">
+//                 <p className="text-xl font-bold text-[var(--primary)]">
+//                   ৳ {product.price}
+//                 </p>
 
-                <Link href={`/products/${product.id}`}>
-                  <button className="text-sm text-[var(--primary)] mt-2 hover:underline">
-                    বিস্তারিত
-                  </button>
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+//                 <Link href={`/products/${product.id}`}>
+//                   <button className="text-sm text-[var(--primary)] mt-2 hover:underline">
+//                     বিস্তারিত
+//                   </button>
+//                 </Link>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
 
-      </div>
-    </div>
-  );
-}
+//       </div>
+//     </div>
+//   );
+// }
     // ramadhan emerald
 
 
@@ -232,3 +232,106 @@ export default function RamadanPage() {
 //     </div>
 //   );
 // }
+
+
+"use client";
+
+import { RAMADAN_PRODUCTS } from "@/data/ramadanProducts";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import LanternDecoration from "./LanternDecoration";
+import MosqueSilhouette from "./MosqueSilhouette";
+
+export default function RamadanPage() {
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-[#0b0b0c] text-white py-24 px-6 md:px-16">
+<MosqueSilhouette />
+      {/* 🌌 Star Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(255,215,0,0.08),transparent_40%),radial-gradient(circle_at_75%_70%,rgba(255,215,0,0.06),transparent_40%)]"></div>
+
+      {/* ✨ Soft Gold Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-yellow-500 opacity-5 blur-[160px] rounded-full"></div>
+
+      {/* 🏮 Floating Lantern */}
+      <LanternDecoration />
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 bg-clip-text text-transparent"
+          >
+            রমজান স্পেশাল মেনু
+          </motion.h1>
+
+          <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-6"></div>
+
+          <p className="text-neutral-400">
+            ইফতারের জন্য আমাদের বিলাসবহুল আয়োজন —
+            প্রতিদিন তাজা ও বিশেষ প্রস্তুত।
+          </p>
+        </div>
+
+        {/* Menu List */}
+        <div className="space-y-10">
+          {RAMADAN_PRODUCTS.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05 }}
+              className="
+                flex flex-col sm:flex-row
+                sm:justify-between
+                sm:items-center
+                gap-4
+                border-b border-yellow-500/20
+                pb-8
+              "
+            >
+              {/* Left */}
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-yellow-400">
+                  {product.name}
+                </h3>
+
+                <p className="text-sm text-neutral-400 mt-2 max-w-xl">
+                  {product.description}
+                </p>
+              </div>
+
+              {/* Right */}
+              <div className="sm:text-right">
+                <p className="text-xl font-bold text-yellow-300">
+                  ৳ {product.price}
+                </p>
+
+                <Link href={`/product/${product.id}`}>
+                  <button className="
+                    mt-3
+                    border border-yellow-400
+                    text-yellow-400
+                    px-5 py-1.5
+                    rounded-full
+                    text-sm
+                    hover:bg-yellow-400
+                    hover:text-black
+                    transition-all duration-300
+                  ">
+                    বিস্তারিত দেখুন
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+      
+    </div>
+    
+  );
+}

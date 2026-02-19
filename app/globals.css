@@ -698,7 +698,7 @@ h2,
 h3,
 h4 {
   font-family: 'Noto Serif Bengali', serif;
-  color: var(--text-primary);
+  /* color: var(--text-primary); */
 }
 
 /* ================================================== */

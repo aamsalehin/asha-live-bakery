@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { PRODUCTS } from "@/data/Products";
 
+
 export interface CartItem {
   id: number;
   name: string;
